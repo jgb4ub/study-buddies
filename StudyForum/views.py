@@ -4,4 +4,4 @@ from .models import LoginAttempt, User
 
 
 def index(request):
-    return render(request, 'StudyForum/index.html')
+    return render(request, 'studyforum/index.html')
