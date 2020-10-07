@@ -9,6 +9,3 @@ Markdown==2.6.11
 psycopg2==2.8.6
 pytz==2018.5
 sqlparse==0.3.1
-virtualenv==16.0.0
-virtualenvwrapper-win==1.2.5
-whitenoise==5.2.0
