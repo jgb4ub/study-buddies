@@ -1,0 +1,14 @@
+language: python
+python:
+- '3.8'
+install:
+- pip install -r requirements-travis.txt
+script:
+- python manage.py test
+deploy:
+  provider: heroku
+  api_key:
+    secure: TtGVgAJJKWceqFGrv7x2l3phN4bc7ZGzEu/FqQkQTWfbK5vl+xKy1QCuusmgkuEr7oW+6pXDDzVMC2lYU4B4zwXFe4cJxYFJtigoaZ1LYnFL3KlJQg6zf6qM09f3ZxOX3aYaNVd4nM4JaF36wwde428CcCbnlb7r7+8qJuD7Pt+GNY93FckdWBFpNHP1InVZbdVrwud1y9WZEQjzcKedU7Lx5y+8eUVCMU6HagplXy6J4RgwlmfPukxAGVm+j/4YsaXmPuEa2YlW32302ZYsNJb9MJrmB25im+EnX0MDd/CuJs+snpR6PRhXNJEhmk+1J1X89MLp6HvsCpKsYYdCJV0iJcdXW3jitr1k77hy9yjJqCrWeDtK3y2I+eq616HlfzsBA1Ir8lpNIqY/UUbXb5BxCB4rO3HmwccOMQUBdef9Q/KS2ltV3FOL1puAFI2mJhemj7BiuqPb3Fmi1iNzwV9PmGGpdzs3ZZqOJBINIT2J6cMbSW0M6ODjNomPINBEcpC/tgeKiYDBnNiLAafLfZ50LgvcCfeAYrIFaFvVj0yfx3mPUypAlStriHz3iGdkJD/gvaaABm5XzmEXDVMkLbWvo6jEo6z66lF56+qzRC3uVclFsqidopsCnqY8PkcrVns1XXVeFyFcKcDF5xDAP122e3VreucCQd+3wOgPbFY=
+  app: the-innovators
+  on:
+    repo: uva-cs3240-f20/project-1-02
