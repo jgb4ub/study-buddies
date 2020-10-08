@@ -7,6 +7,15 @@
 </head>
 <body>
     <h1>Hello World!</h1>
+
+    {% if user.is_authenticated %}
+
+    <h1>Login successful!</h1>
+    
+    {% else %}
+
+    <h1>Please Login!</h1>
+    {% endif %}
     
 </body>
 </html>
