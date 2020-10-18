@@ -1,3 +1,4 @@
+{% extends './global_template.html' %} {% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    <h1>Hello World!</h1>
 
     {% if user.is_authenticated %}
-
     <h1>Login successful!</h1>
-    
     {% else %}
-
-    <h1>Please Login!</h1>
+    <form>
+    <h1>Login Page</h1>
+    <button class = "btn btn-block btn-primary big-button">Please Login With Google Here!</button>
+    </form>
     {% endif %}
     
 </body>
+
+
+
+
 </html>
+{% endblock %}

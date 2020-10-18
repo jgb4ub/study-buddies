@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+</head>
+<body>
+<div class = "col-md-4"></div>
+<div style="margin-bottom: 30px" class="column-positioning col-md-4">
+    <form>
+        <h1>Pick a posting category:</h1>
+        <div class="btn btn-group-toggle" style="background-color:lightgray" class="col-md-8">
+            <button type="button" class="btn btn-dark" data-toggle="button">
+                Class Question
+            </button>
+            <button type="button" class="btn btn-dark" data-toggle="button">
+                Study Group Find
+            </button>
+        </div>
+    </form>
+</div>
+
+<form>
+    <div class="form-group row" style="margin-left:50px">
+        <div style="margin-top:-15px" class="col-md-2">
+            <label style="padding-top:22px">Professor Name</label>
+            <select class="form-control" name="prof">
+                <option>John Smith</option>
+				<option>Jane Doe</option>
+            </select>
+        </div>
+        <div style="margin-top:-15px" class="col-md-4">
+            <label style="padding-top:22px">Class</label>
+            <select class="form-control" name="course">
+                <option>CS 3999</option>
+				<option>CS 4640</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row column-positioning">
+        <div class="col-md-6">
+            <label>Post Subject</label>
+            <input type="text" class="form-control" id="subject-area" name="subject">
+        </div>
+    </div>
+    <div class="row column-positioning">
+        <div class="col-md-6">
+            <label> Type Post Content Here </label>
+            <textarea class="form-control" id="text-area" name="question">
+  </textarea>
+        </div>
+    </div>
+    <div class="row check-box-row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="postable">
+            </div>
+
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="anonymous">
+                <label class="form-check-label">
+                    Anonymous
+                </label>
+            </div>
+            <button type="submit" style="margin-top:10px" class="btn btn-dark" id="submit-question-button" name="submit-question-button">Create Post</button>
+        </div>
+    </div>
+</form>
+
+<!--
+    <div class="row bottom-column">
+        <div class="col-md-6" style="border-top-style:solid">
+            <h1 style="margin-top:30px">Recently Submitted Posts: </h1>
+            <div class="card z-depth-0 bordered" id="cardReader">
+                <div class="card-body" id="card-recent">
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+</body>
+</html>
