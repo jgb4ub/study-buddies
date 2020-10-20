@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
-from .models import LoginAttempt, User, Forum, Post
+from .models import LoginAttempt, User, Post
 
 
 def index(request):
@@ -8,5 +8,5 @@ def index(request):
 
 def post(request):
     post_list = Post.objects.all()
-	context = {'post_list':post_list}
-	return render(request, 'studyforum/postings/html',context)
+    context = {'post_list': post_list}
+    return render(request, 'studyforum/postings.html',context)

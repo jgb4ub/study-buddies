@@ -4,8 +4,8 @@ from django.conf import settings
 
 class User(models.Model):
     username = models.CharField(max_length = 12)
-    firstname = models.CharField(max_length = 12)
-    lastname = models.CharField(max_length = 12)
+    firstname = models.CharField(max_length = 12, default='Sammy')
+    lastname = models.CharField(max_length = 12, default = 'Lahrime')
     password = models.CharField(max_length = 12)
 
 class LoginAttempt(models.Model):
