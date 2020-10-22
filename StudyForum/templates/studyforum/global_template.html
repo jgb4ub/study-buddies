@@ -33,19 +33,14 @@
           <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:index' %}">Sign-in</a>
         </li>
         <li class="nav-item">
-          <a style="color: #6594ff" class="nav-link" href="#">Postings</a>
+          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:post' %}">Postings</a>
         </li>
       </ul>
     </div>
   </nav>
 
   <body>
-    <div class="row ">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">{% block content %} {% endblock %}</div>
-      <div class="col-md-4"></div>
-    </div>
-
+   {% block content %} {% endblock %}
     <div class = "row">
     <div class = "footer">
   <div class="jumbotron">
