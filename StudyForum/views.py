@@ -13,3 +13,12 @@ def post(request):
 
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
+
+def addpost(request):
+    new_post_content = request.POST.get("submitter",False)
+    new_post = Post(content = new_post_content)
+    new_post.subject = "testing the post"
+    new_post.save()
+    post_list = Post.objects.all()
+    context = {'post_list': post_list}
+    return render(request, 'studyforum/postings.html',context)

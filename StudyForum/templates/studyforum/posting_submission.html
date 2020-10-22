@@ -28,7 +28,8 @@
     </form>
 </div>
 
-<form>
+<form action = "{% url 'studyforum:addpost' %}" method = "post">
+    {% csrf_token %}
     <div class="form-group row" style="margin-left:50px">
         <div style="margin-top:-15px" class="col-md-2">
             <label style="padding-top:22px">Professor Name</label>
@@ -49,7 +50,7 @@
     <div class="row column-positioning">
         <div class="col-md-6">
             <label>Post Subject</label>
-            <input type="text" class="form-control" id="subject-area" name="subject">
+            <input type="text" class="form-control" id="subject-area" name="submitter">
         </div>
     </div>
     <div class="row column-positioning">
