@@ -1,7 +1,7 @@
 from django.db import models
 from django.conf import settings
+import random
 # Create your models here.
-
 class User(models.Model):
     username = models.CharField(max_length = 12)
     firstname = models.CharField(max_length = 12, default='Sammy')
@@ -18,3 +18,4 @@ class Post(models.Model):
     subject = models.CharField(max_length = 50)
     category = models.CharField(max_length = 20)
     content = models.CharField(max_length = 100)
+    postID = models.CharField(max_length=100, default=models.ForeignKey("self", on_delete=models.CASCADE))
