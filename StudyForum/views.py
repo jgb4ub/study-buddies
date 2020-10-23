@@ -22,6 +22,8 @@ def addpost(request):
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
 
-def postpage(request, questionID):
+def postpage(request, post_id):
+    post_list = Post.objects.all()
     post = Post.objects.get(pk=post_id)
-    return render(request, 'studyforum/postpage.html',context)
+    context = {'post_list': post_list}
+    return render(request, 'studyforum/postpage.html', {'post': post})
