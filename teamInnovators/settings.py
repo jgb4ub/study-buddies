@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-#import django_heroku
+import django_heroku
+#something
 import os
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -126,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 
 AUTHENTICATION_BACKENDS = [
@@ -138,7 +139,7 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 
-SITE_ID = 1
+SITE_ID = 2
 
 
 LOGIN_REDIRECT_URL = '/'

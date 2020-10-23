@@ -7,24 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="mx-3 my-3">
-        <a href="{% url 'studyforum:post'  %}"><button  class="btn btn-primary btn-lg mt-3 ml-2"> Back to Posts</button></a>
-    </div>
-    <div class = "card mx-2" style = "margin-top: 100px;">
-        <div class="card-body" id ="card-four">
-            <div class="row">
-                <h6 class="col-sm-4" >Username: {{post.username}}</h4>
-                <h6 class="col-sm-4 " >Category: {{post.category}}</h4>
+    <div class = "row" style = "margin-top: 100px;">
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-8">
+                <h1 class="mt-2">{{post.subject}}</h1>
+                <p>{{post.username}}</p>
+                <hr class="mt-0 mb-4">
+                <p>{{post.content}}</p>
+                <form><button formaction="{% url 'studyforum:post' %}" class = "btn btn-block btn-primary big-button">Return to forum</button></form>
+              </div>
             </div>
-            <div><h3 class="card-title">{{post.subject}}</h3></div>
-            <hr>
-            <div><h5 class="card-subtitle ml-2">{{post.content}}</div>
           </div>
     </div>
     </body>
-
-
-
-
     </html>
-    {% endblock content%}
+    {% endblock %}
