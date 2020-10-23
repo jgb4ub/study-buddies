@@ -13,11 +13,6 @@ def post(request):
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
 
-def postrender(request, post_id):
-    post = Post.objects.get(pk=post_id)
-    selected = post.choice_set.get(pk=request.POST['choice'])
-    
-
 def addpost(request):
     new_post_content = request.POST.get("submitter",False)
     new_post = Post(content = new_post_content)
@@ -27,5 +22,8 @@ def addpost(request):
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
 
-def postpage(request, questionID):
-    return HttpResponse()
+def postpage(request, post_id):
+    post_list = Post.objects.all()
+    post = Post.objects.get(pk=post_id)
+    context = {'post_list': post_list}
+    return render(request, 'studyforum/postpage.html', {'post': post})
