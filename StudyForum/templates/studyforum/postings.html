@@ -34,7 +34,7 @@
                 <div class="card-header">
                   <h1>
                     <form>
-                      <button formaction="{% url 'studyforum:postpage' post.id %}" class = "btn btn-block btn-primary big-button">Visit Post</button>
+                      <!--<button formaction="{% url 'studyforum:postpage' post.id %}" class = "btn btn-block btn-primary big-button">Visit Post</button>-->
                     </form>
                   </h1>
                 </div>
@@ -45,7 +45,7 @@
         {% endfor %}
     <!--<button onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-block btn-primary big-button">Create New Post</button>-->
     <form>
-    <button formaction="{% url 'studyforum:postsubmit' %}" class = "btn btn-block btn-primary big-button">Create New Post</button>
+    <!--<button formaction="{% url 'studyforum:postsubmit' %}" class = "btn btn-block btn-primary big-button">Create New Post</button>-->
     </form>
     <!--href="{% url 'studyforum:index' %}"-->
     {% endblock%}
