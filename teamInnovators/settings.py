@@ -126,7 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-  django_heroku.settings(locals())
+django_heroku.settings(locals())
 
 
 AUTHENTICATION_BACKENDS = [
