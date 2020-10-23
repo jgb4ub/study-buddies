@@ -18,4 +18,3 @@ class Post(models.Model):
     subject = models.CharField(max_length = 50)
     category = models.CharField(max_length = 20)
     content = models.CharField(max_length = 100)
-    postID = models.CharField(max_length=100, default=models.ForeignKey("self", on_delete=models.CASCADE))
