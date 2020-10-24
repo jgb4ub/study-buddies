@@ -127,8 +127,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
-
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -138,7 +136,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-if '/app' in os.environ['HOME']:
+if 'I_AM_HEROKU' in os.environ:
+    # Configure Django App for Heroku.
     import django_heroku
     django_heroku.settings(locals())
 
