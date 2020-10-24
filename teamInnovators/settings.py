@@ -138,11 +138,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-""" if '/app' in os.environ['HOME']:
-    import django_heroku
-    django_heroku.settings(locals()) """
-if 'I_AM_HEROKU' in os.environ:
-    # Configure Django App for Heroku.
+import os
+if '/app' in os.environ['HOME']:
     import django_heroku
     django_heroku.settings(locals())
 
