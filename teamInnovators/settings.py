@@ -140,7 +140,7 @@ AUTHENTICATION_BACKENDS = [
 #   import django_heroku
 #   django_heroku.settings(locals())
 
-django_heroku.settings(locals())
+django_heroku.settings(locals(),test_runner=False)
 SITE_ID = 1
 
 
