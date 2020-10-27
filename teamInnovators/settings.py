@@ -139,7 +139,8 @@ AUTHENTICATION_BACKENDS = [
 #if '/app' in os.environ['HOME']:
 #   import django_heroku
 #   django_heroku.settings(locals())
-django_heroku.settings(locals())
+
+django_heroku.settings(locals(),test_runner=False)
 SITE_ID = 1
 
 
