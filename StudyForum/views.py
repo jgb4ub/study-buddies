@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
-from .models import LoginAttempt, User, Post
+from .models import LoginAttempt, User, Post, Message
 
 def index(request):
     return render(request, 'studyforum/index.html')
@@ -25,3 +25,7 @@ def addpost(request):
 def postpage(request, post_id):
     post = Post.objects.get(pk=post_id)
     return render(request, 'studyforum/postpage.html', {'post': post})
+
+def messages(request, user_id):
+    user_messages = Message.objects
+    message_list = user_messages.order_by('-time')

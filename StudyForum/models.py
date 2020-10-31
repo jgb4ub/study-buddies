@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.utils import timezone
 import random
 # Create your models here.
 class User(models.Model):
@@ -18,3 +19,9 @@ class Post(models.Model):
     subject = models.CharField(max_length = 50, default="na")
     category = models.CharField(max_length = 20, default="na")
     content = models.CharField(max_length = 100, default="na")
+
+class Message():
+    sender = models.CharField(max_length = 12, default = "anonymous")
+    recipient = models.CharField(max_length = 12, default = "anonymous")
+    content = models.CharField(max_length = 250, default = "(empty message)")
+    time = models.DateTimeField('Time Sent')
