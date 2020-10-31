@@ -25,3 +25,7 @@ def addpost(request):
 def postpage(request, post_id):
     post = Post.objects.get(pk=post_id)
     return render(request, 'studyforum/postpage.html', {'post': post})
+
+def chat(request):
+    return render(request, 'studyforum/chat.html')
+
