@@ -10,5 +10,7 @@ urlpatterns = [
     path('postsubmission/',views.postsubmit, name = 'postsubmit'),
     path('addpost/',views.addpost, name='addpost'),
     path('<int:post_id>/postpage/', views.postpage, name='postpage'),
-    path('chat/', views.chat, name='chat')
+    path('sendchat/', views.messages, name='sendchat'),
+    path('sendmessage/',views.sendmessage,name='sendmessage'),
+    path('receivechat/', views.messageReceived, name='receivechat')
 ]

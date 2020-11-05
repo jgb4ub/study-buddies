@@ -1,25 +1,50 @@
-{% extends './global_template.html' %}
-{% block content %}
+{% extends './global_template.html' %} {% block content %}
+
 <!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Chat - Customer Module</title>
-<link type="text/css" rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
 </head>
- 
-<div id="wrapper">
-    <div id="menu">
-        <p class="welcome">Welcome, <b></b></p>
-        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>
-        <div style="clear:both"></div>
-    </div>
-     
-    <div id="chatbox"></div>
-     
-    <form name="message" action="">
-        <input name="usermsg" type="text" id="usermsg" size="63" />
-        <input name="submitmsg" type="submit"  id="submitmsg" value="Send" />
-    </form>
+<body>
+<div class = "col-md-4"></div>
+<div style="margin-bottom: 30px" class="column-positioning col-md-4">
+    <h1>Received Chats</h1>
 </div>
+
+<form action = "{% url 'studyforum:sendmessage' %}" method = "post">
+    {% csrf_token %}
+    <div class="row column-positioning">
+        <div class="col-md-6">
+            <label>Pick a user</label>
+            <select class="form-control" name="username">
+                {% for username in username_list %}
+                <option>{{username.username}}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+    <div class="row column-positioning">    
+        <div class="col-md-6">
+            <label> Type Post Content Here </label>
+            <input type="text" class="form-control" id="text-area" name="message">
+  </textarea>
+        </div>
+    </div>
+    <div class="row check-box-row">
+        <div class="col-md-6">
+            <button type="submit" style="margin-top:10px" class="btn btn-dark" id="send-chat" name="send-chat-button">Send chat</button>
+        </div>
+    </div>
+</form>
 </body>
 </html>
-{% endblock%}
+
+{% endblock %}
