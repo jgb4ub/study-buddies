@@ -1,42 +1,44 @@
 {% extends './global_template.html' %}
+{% if user.username%}
+    {% block content %}
+      <h1>Current Forum Posts</h1>
+      <div class = "container my-3">
+          <nav class = "breadcrumb">
+            <h6 class = "breadcrumb-item-active mx-auto">Messages</h6>
+          </nav>
 
-{% block content %}
-  <h1>Current Forum Posts</h1>
-  <div class = "container my-3">
-      <nav class = "breadcrumb">
-        <h6 class = "breadcrumb-item-active mx-auto">Messages</h6>
-      </nav>
+      </div>
+    <div class = "row">
+      <div class ="col-md-4"></div>
+      <div class = "col-md-4">
+            {% for message in messages %}
+            <div class="card z-depth-0 bordered">
+                    <div class="card-header">
+                      <h4>
+                      From: <b>{{message.sender}}</b><br>
+                      To: <b>{{message.recipient}}</b>
 
-  </div>
-<div class = "row">
-  <div class ="col-md-4"></div>
-  <div class = "col-md-4">
-        {% for message in messages %}
-        <div class="card z-depth-0 bordered">
-                <div class="card-header">
-                  <h4>
-                  From: <b>{{message.sender}}</b><br>
-                  To: <b>{{message.recipient}}</b>
+                      </h4>
+                    </div>
+                    <div class="card-body" id ="card-four">
+                      {{post.content}}
+                      <br>
+                      <h5>Sent: <b>{{message.time}}</b></h5>
+                      <h1>
+                        <form>
+                          <button formaction="{% url 'studyforum:messages' message.sender %}" class = "btn btn-block btn-primary big-button">Respond</button>
+                        </form>
+                      </h1>
+                    </div>
 
-                  </h4>
-                </div>
-                <div class="card-body" id ="card-four">
-                  {{post.content}}
-                  <br>
-                  <h5>Sent: <b>{{message.time}}</b></h5>
-                  <h1>
-                    <form>
-                      <button formaction="{% url 'studyforum:messages' message.sender %}" class = "btn btn-block btn-primary big-button">Respond</button>
-                    </form>
-                  </h1>
-                </div>
+                  </div>
+            {% endfor %}
+            </div>
 
-              </div>
-        {% endfor %}
-        </div>
+    </div>
+        <!--<button onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-block btn-primary big-button">Create New Post</button>-->
 
-</div>
-    <!--<button onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-block btn-primary big-button">Create New Post</button>-->
+        <!--href="{% url 'studyforum:index' %}"-->
+    {% endblock %}
 
-    <!--href="{% url 'studyforum:index' %}"-->
-    {% endblock%}
+{% endif %}
