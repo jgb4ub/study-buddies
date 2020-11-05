@@ -7,6 +7,13 @@ class User(models.Model):
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
     password = models.CharField(max_length = 12)
+    major = models.CharField(max_length = 20)
+    classes = models.CharField(max_length = 200)
+    description = models.ManytoManyField(max_length = 250)
+
+class courses(models.Model):
+    className = models.Charfield(max_length = 20)
+    classNumber = models.CharField(max_length=10)
 
 class LoginAttempt(models.Model):
     username_passed_in = models.CharField(max_length = 12)
