@@ -9,6 +9,9 @@ def post(request):
     post_list = Post.objects.all()
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
+
+def profile_page(request):
+    return render(request, 'studyforum/profile_page.html')
     
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
