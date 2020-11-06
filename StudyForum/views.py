@@ -26,8 +26,8 @@ def postpage(request, post_id):
     post = Post.objects.get(pk=post_id)
     return render(request, 'studyforum/postpage.html', {'post': post})
 
-def messages(request, user_id):
-    user_messages = Message.objects.filter(recipient=user_id)
+def messages(request, username):
+    user_messages = Message.objects.filter(recipient=username)
     #user_messages2 = Message.objects.filter(recipient=user_id)
     #user_messages = user_messages.union(user_messages2)
     message_list = user_messages.order_by('-time')
