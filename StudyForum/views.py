@@ -27,4 +27,4 @@ def postpage(request, post_id):
     return render(request, 'studyforum/postpage.html', {'post': post})
 
 def profilepage(request):
-    return render(request, 'studyforum/profile_page.html', {'user': user})
+    return render(request, 'studyforum/profile_page.html')
