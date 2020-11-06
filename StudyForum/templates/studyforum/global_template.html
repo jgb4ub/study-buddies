@@ -37,7 +37,7 @@
         </li>
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:post' %}">Postings</a>
+          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:messages allauth.username' %}">Messages</a>
         </li>
         {% endif %}
       </ul>
