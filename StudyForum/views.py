@@ -27,5 +27,4 @@ def postpage(request, post_id):
     return render(request, 'studyforum/postpage.html', {'post': post})
 
 def profilepage(request, userid):
-    user = User.objects.get(pk=userid)
-    return render(request, 'studyforum/profilepage.html', {'user': user})
+    return render(request, 'studyforum/profilepage.html')
