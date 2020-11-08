@@ -35,4 +35,4 @@ def profilepage(request, id):
             found = True
     if not found:
         profile = User(userid=id)
-        return render(request, 'studyforum/profilepage.html', {'profile': profile})
+    return render(request, 'studyforum/profilepage.html', {'profile': profile})
