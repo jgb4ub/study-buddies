@@ -36,5 +36,5 @@ def profilepage(request, id):
     if not found:
         profile = User(userid=id) 
     return render(request, 'studyforum/profilepage.html', {'profile': profile})
-def editprofile(request):
+def editprofile(request, id):
     return render(request, 'studyforum/index.html')
