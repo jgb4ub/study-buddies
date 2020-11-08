@@ -15,7 +15,7 @@
     <h1>Welcome! </h1>
     <h1>{{ user.first_name }}</h1>
     <h1>Login successful!</h1>
-    <a href="{% url 'studyforum:profilepage' id=user.id %}">Sign-in</a>
+    <a href="{% url 'studyforum:profilepage' id=user.id %}">Profile</a>
     {% else %}
     <h1>Login Page</h1>
     <button onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-block btn-primary big-button">Please Login With Google Here!</button>

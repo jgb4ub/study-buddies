@@ -27,4 +27,9 @@ def postpage(request, post_id):
     return render(request, 'studyforum/postpage.html', {'post': post})
 
 def profilepage(request, id):
-    return render(request, 'studyforum/profilepage.html')
+    try{
+        profile = User.objects.get(pk=id)
+    } except {
+        profile = User(username="", firstname="Ibrahim", lastname="Hamdy", pk=id)
+    }
+    return render(request, 'studyforum/profilepage.html', {'profile': profile})
