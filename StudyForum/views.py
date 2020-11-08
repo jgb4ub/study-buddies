@@ -15,6 +15,22 @@ def profile_page(request, username):
                 'major': 'Computer Science',
                 'year': '2022'}
     return render(request, 'studyforum/profile_page.html',context)
+
+
+def profilepage(request, id):
+    found = False
+    profileList = User.objects.all()
+    for i in profileList:
+        if i.userid == id:
+            profile = i
+            found = True
+    if not found:
+        profile = User(userid=id)
+        profile.save() 
+    return render(request, 'studyforum/profile_page.html', {'profile': profile})
+
+def editprofile(request, id):
+    return render(request, 'studyforum/index.html')
     
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')

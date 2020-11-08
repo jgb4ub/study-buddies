@@ -13,5 +13,6 @@ urlpatterns = [
     path('sendchat/', views.messages, name='sendchat'),
     path('sendmessage/',views.sendmessage,name='sendmessage'),
     path('receivechat/', views.messageReceived, name='receivechat'),
-    path('<str:username>/profilepage/',views.profile_page, name = 'profilepage')
+    path('<str:username>/profilepage/',views.profile_page, name = 'profilepage'),
+    path('<int:id>/profilepage/', views.profilepage, name = 'profilepage')
 ]
