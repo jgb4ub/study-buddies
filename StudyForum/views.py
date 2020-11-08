@@ -34,5 +34,5 @@ def profilepage(request, id):
             profile = i
             found = True
     if not found:
-        profile = User(username="default", firstname="Ibrahim", lastname="Hamdy", userid=id)
+        profile = User(username="default", firstname="Ibrahim", lastname="Hamdy", password=" ", major="none", classes="none", description = " ",  userid=id)
     return render(request, 'studyforum/profilepage.html', {'profile': profile})
