@@ -7,7 +7,6 @@ class User(models.Model):
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
     password = models.CharField(max_length = 12, default=" ")
-    major = models.CharField(max_length = 20, default="undeclared")
     classes = models.CharField(max_length = 200, default=" ")
     description = models.CharField(max_length = 250, default=" ")
     userid = models.CharField(max_length=10)
