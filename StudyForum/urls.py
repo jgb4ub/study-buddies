@@ -10,5 +10,5 @@ urlpatterns = [
     path('postsubmission/',views.postsubmit, name = 'postsubmit'),
     path('addpost/',views.addpost, name='addpost'),
     path('<int:post_id>/postpage/', views.postpage, name='postpage'),
-    path('profile/', views.profilepage, name = 'profilepage'),
+    path('profilepage/', views.profilepage, name = 'profilepage'),
 ]
