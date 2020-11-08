@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models 
 from django.conf import settings
 import random
 # Create your models here.
@@ -6,7 +6,7 @@ class User(models.Model):
     username = models.CharField(max_length = 12, default="default name")
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
-    userid = models.CharField(max_length=10)
+    userid = models.CharField(max_length=10, default="0")
 
 class courses(models.Model):
     className = models.CharField(max_length = 20)
