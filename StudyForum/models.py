@@ -3,13 +3,13 @@ from django.conf import settings
 import random
 # Create your models here.
 class User(models.Model):
-    username = models.CharField(max_length = 12)
+    username = models.CharField(max_length = 12, default="default name")
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
-    password = models.CharField(max_length = 12)
-    major = models.CharField(max_length = 20)
-    classes = models.CharField(max_length = 200)
-    description = models.CharField(max_length = 250)
+    password = models.CharField(max_length = 12, default=" ")
+    major = models.CharField(max_length = 20, default="undeclared")
+    classes = models.CharField(max_length = 200, default=" ")
+    description = models.CharField(max_length = 250, default=" ")
     userid = models.CharField(max_length=10)
 
 class courses(models.Model):
