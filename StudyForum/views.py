@@ -27,7 +27,6 @@ def postpage(request, post_id):
     return render(request, 'studyforum/postpage.html', {'post': post})
 
 def profilepage(request, id):
-    profile = User.objects.get(userid=id)
-    return render(request, 'studyforum/profile_page.html', {'profile': profile})
+    return render(request, 'studyforum/profile_page.html')
 def editprofile(request, id):
     return render(request, 'studyforum/index.html')
