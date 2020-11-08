@@ -67,7 +67,9 @@ def sendmessage(request):
     context = {'message_list': message_list}
     return render(request, 'studyforum/postings.html',context)
 
-def messageReceived(request):
-    message_list = Message.objects.all()
-    context = {'message_list': message_list}
-    return render(request, 'studyforum/receivechat.html',context)
+def messageReceived(request, user_id):
+    user_messages = Message.objects.filter(recipient=user_id)
+    #user_messages2 = Message.objects.filter(recipient=user_id)
+    #user_messages = user_messages.union(user_messages2)
+    message_list = user_messages.order_by('-time')
+    return render(request, 'studyforum/receivechat.html', {'messages': message_list})

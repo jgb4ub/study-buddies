@@ -25,4 +25,5 @@ class Message(models.Model):
     sender = models.CharField(max_length = 12, default = "anonymous")
     recipient = models.CharField(max_length = 12, default = "anonymous")
     content = models.CharField(max_length = 250, default = "(empty message)")
-    #time = models.DateTimeField('Time Sent')
+    time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+

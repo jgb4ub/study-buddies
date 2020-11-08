@@ -1,24 +1,33 @@
 {% extends './global_template.html' %}
-
+{% if user.username%}
 {% block content %}
 <h1>Received messages</h1> 
 <div class = "row">
   <div class ="col-md-4"></div>
   <div class = "col-md-4">
-        {% for message in message_list %}
-        <div class="card z-depth-0 bordered">
-                <div class="card-header">
-                  <h1>
-                  Username: {{message.sender}}
-                  </h1>
-                </div>
-                <div class="card-body" id ="card-four">
-                  Content: {{message.content}}
-                  <!--ID: {{message.id}}-->
-                </div>
-              </div>
-        {% endfor %}
-        </div>
-        <div class = "col-md-4"></div>
+    {% for message in message_list %}
+    <div class="card z-depth-0 bordered">
+            <div class="card-header">
+              <h4>
+              From: <b>{{message.sender}}</b><br>
+              To: <b>{{message.recipient}}</b>
+
+              </h4>
+            </div>
+            <div class="card-body" id ="card-four">
+              {{message.content}}
+              <br>
+              <h5>Sent: <b>{{message.time}}</b></h5>
+              <h1>
+                <form>
+                  <button formaction="{% url 'studyforum:receivechat' message.sender %}" class = "btn btn-block btn-primary big-button">Respond</button>
+                </form>
+              </h1>
+            </div>
+
+          </div>
+    {% endfor %}
+    </div>
   </div>
     {% endblock%}
+    {% endif %}
