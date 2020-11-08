@@ -28,8 +28,8 @@ def postpage(request, post_id):
 
 def profilepage(request, id):
     try{
-        profile = User.objects.get(pk=id)
+        profile = User.objects.get(userid=id)
     } except {
-        profile = User(username="", firstname="Ibrahim", lastname="Hamdy", pk=id)
+        profile = User(username="", firstname="Ibrahim", lastname="Hamdy", userid=id)
     }
     return render(request, 'studyforum/profilepage.html', {'profile': profile})

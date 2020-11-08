@@ -10,6 +10,7 @@ class User(models.Model):
     major = models.CharField(max_length = 20)
     classes = models.CharField(max_length = 200)
     description = models.CharField(max_length = 250)
+    userid = models.CharField(max_length=10)
 
 class courses(models.Model):
     className = models.CharField(max_length = 20)
