@@ -25,7 +25,7 @@ def profilepage(request, id):
             profile = i
             found = True
     if not found:
-        profile = User(userid=id)
+        profile = User(userid=id, username = "Sammy")
         profile.save() 
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
