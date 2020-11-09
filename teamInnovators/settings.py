@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-#import django_heroku
+import django_heroku
 import os
-import django.contrib.auth.models
+from django.contrib.auth.models import AbstractUser
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -32,7 +32,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+AUTH_USER_MODEL = 'StudyForum.User'
 
 # Application definition
 
@@ -145,10 +145,8 @@ AUTHENTICATION_BACKENDS = [
 #   import django_heroku
 #   django_heroku.settings(locals())
 
-#django_heroku.settings(locals(),test_runner=False)
+django_heroku.settings(locals(),test_runner=False)
 SITE_ID = 1
 
 
 LOGIN_REDIRECT_URL = '/'
-
-AUTH_USER_MODEl = 'StudyForum.User'
