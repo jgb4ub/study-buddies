@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 #import django_heroku
 import os
+from django.contrib.auth.models import AbstractUser
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -20,7 +21,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-AUTH_USER_MODEl = 'StudyForum.User'
+
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '2f$0lpe!4fm2y4cjkww((9&8wcx@$itlzia4vufvo0s-c^-vj^'
@@ -31,10 +33,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
-    'StudyForum.apps.StudyforumConfig',
+    'StudyForum',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.sites',
@@ -147,3 +150,5 @@ SITE_ID = 1
 
 
 LOGIN_REDIRECT_URL = '/'
+
+AUTH_USER_MODEl = 'StudyForum.User'

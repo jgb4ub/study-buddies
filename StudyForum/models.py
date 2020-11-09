@@ -9,8 +9,6 @@ class User(AbstractUser):
     username = models.CharField(max_length = 12, default="default username")
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
-    password = models.CharField(max_length = 12)
-    userid = models.CharField(max_length=10, default="0")
 
 class LoginAttempt(models.Model):
     username_passed_in = models.CharField(max_length = 12)
