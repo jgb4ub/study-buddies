@@ -10,7 +10,7 @@ def post(request):
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
 
-def profile_page(request, username):
+def profile_page(request, id):
     profile = User.objects.get(userid=id)
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
