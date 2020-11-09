@@ -13,7 +13,6 @@ def post(request):
 def profile_page(request, username):
     profile = User.objects.get(userid=id)
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
-    
 
 def editprofile(request, id):
     return render(request, 'studyforum/index.html')
