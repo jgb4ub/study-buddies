@@ -11,7 +11,13 @@ def post(request):
     return render(request, 'studyforum/postings.html',context)
 
 def profile_page(request, id):
-    profile = User.objects.get(id=id)
+    found = False
+    for i in User.objects.all():
+        if i.userid == id:
+            profile = i
+            found = True
+    if not found:
+        profile = User(userid=id)
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
 def editprofile(request, id):
