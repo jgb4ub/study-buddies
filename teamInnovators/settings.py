@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-import django_heroku
+#import django_heroku
 import os
 from pathlib import Path
 
@@ -31,8 +31,6 @@ SECRET_KEY = '2f$0lpe!4fm2y4cjkww((9&8wcx@$itlzia4vufvo0s-c^-vj^'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
-AUTH_USER_MODEL = 'StudyForum.User'
 
 # Application definition
 
@@ -93,6 +91,17 @@ DATABASES = {
     }
 }
 
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -132,6 +141,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+AUTH_USER_MODEL = 'StudyForum.User'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
@@ -145,7 +155,7 @@ AUTHENTICATION_BACKENDS = [
 #   import django_heroku
 #   django_heroku.settings(locals())
 
-django_heroku.settings(locals(),test_runner=False)
+#django_heroku.settings(locals(),test_runner=False)
 SITE_ID = 1
 
 

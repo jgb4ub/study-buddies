@@ -5,8 +5,8 @@ import requests, json
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
 class User(AbstractUser):
-    firstname = models.CharField(max_length = 12, default='Sammy')
-    lastname = models.CharField(max_length = 12, default = 'Lahrime')
+    description = models.CharField(max_length = 100, default='Sammy')
+    somethingplease = models.CharField(max_length = 100, default="please work")
 
 class LoginAttempt(models.Model):
     username_passed_in = models.CharField(max_length = 12)
