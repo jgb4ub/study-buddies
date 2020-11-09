@@ -18,15 +18,8 @@ def profile_page(request, username):
 
 
 def profilepage(request, id):
-    found = False
-    profileList = User.objects.all()
-    for i in profileList:
-        if i.userid == id:
-            profile = i
-            found = True
-    if not found:
-        profile = User(userid=id, username = "Sammy")
-        profile.save() 
+    profile = User(userid=id, username = "Sammy")
+    profile.save() 
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
 def editprofile(request, id):
