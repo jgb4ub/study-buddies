@@ -5,7 +5,6 @@ import requests, json
 from django.contrib.auth.models import AbstractUser
 # Create your models here.
 class User(AbstractUser):
-    username = models.CharField(max_length = 12, default="default username")
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
 
