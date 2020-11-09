@@ -11,7 +11,7 @@ def post(request):
     return render(request, 'studyforum/postings.html',context)
 
 def profile_page(request, id):
-    profile = User.objects.get(userid=id)
+    profile = User.objects.get(id=id)
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
 def editprofile(request, id):
