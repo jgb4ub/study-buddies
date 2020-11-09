@@ -23,12 +23,13 @@
     {% csrf_token %}
     <div class="row column-positioning">
         <div class="col-md-6">
-            <label>Pick a user</label>
-            <select class="form-control" name="username">
-                {% for username in username_list %}
-                <option>{{username.username}}</option>
-                {% endfor %}
+            <label>Sending message from:</label>
+            <select class="form-control" name="sender">
+                <option>{{user.socialaccount_set.all.0.extra_data.name}}</option>
             </select>
+            <label>To receiver:</label>
+            <input type='text' class="form-control" name="receiver">
+            </input>
         </div>
     </div>
     <div class="row column-positioning">    

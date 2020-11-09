@@ -35,6 +35,15 @@
         <li class="nav-item">
           <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:post' %}">Postings</a>
         </li>
+        {%if user.is_authenticated%}
+        <form action = "{% url 'studyforum:receivechat' %}" method = "post" >
+           {% csrf_token %}
+        <li class="nav-item">
+          <input type="hidden" value={{user.socialaccount_set.all.0.extra_data.name}} name="receiver" />
+          <button type="submit" style="margin-top:10px" class="btn btn-dark" id="send-chat" name="send-chat-button">Messages</button>
+        </li>
+      </form>
+        {%endif%}
       </ul>
     </div>
   </nav>

@@ -47,15 +47,19 @@ def messages(request):
 
 def sendmessage(request):
     message_content = request.POST.get("message",False)
-    new_message = Message(content = message_content)
+    message_sender = request.POST.get("sender", False)
+    message_receiver = request.POST.get("receiver",False)
+    new_message = Message(content = message_content, sender = message_sender, recipient = message_receiver)
     new_message.save()
-    message_list = Message.objects.all()
-    context = {'message_list': message_list}
+    post_list = Post.objects.all()
+    context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
 
-def messageReceived(request, user_id):
-    user_messages = Message.objects.filter(recipient=user_id)
+def messageReceived(request):
+    message_recipient = request.POST.get("receiver",False)
+    user_messages = Message.objects.filter(recipient=message_recipient)
     #user_messages2 = Message.objects.filter(recipient=user_id)
     #user_messages = user_messages.union(user_messages2)
     message_list = user_messages.order_by('-time')
+    print(message_recipient)
     return render(request, 'studyforum/receivechat.html', {'messages': message_list})
