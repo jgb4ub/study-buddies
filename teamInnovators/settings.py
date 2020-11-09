@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-import django_heroku
+#import django_heroku
 import os
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -19,6 +19,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+
+AUTH_USER_MODEl = 'StudyForum.User'
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '2f$0lpe!4fm2y4cjkww((9&8wcx@$itlzia4vufvo0s-c^-vj^'
@@ -140,7 +142,7 @@ AUTHENTICATION_BACKENDS = [
 #   import django_heroku
 #   django_heroku.settings(locals())
 
-django_heroku.settings(locals(),test_runner=False)
+#django_heroku.settings(locals(),test_runner=False)
 SITE_ID = 1
 
 
