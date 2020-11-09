@@ -3,7 +3,6 @@ from django.conf import settings
 from django.utils import timezone
 import requests, json
 from django.contrib.auth.models import AbstractUser
-import random
 # Create your models here.
 class User(AbstractUser):
     username = models.CharField(max_length = 12, default="default username")
