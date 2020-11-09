@@ -9,9 +9,9 @@ https://docs.djangoproject.com/en/1.11/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.11/ref/settings/
 """
-import django_heroku
+#import django_heroku
 import os
-from django.contrib.auth.models import AbstractUser
+from pathlib import Path
 
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -141,11 +141,11 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-#if '/app' in os.environ['HOME']:
+#if '/app' in os.environ['HOME']:u
 #   import django_heroku
 #   django_heroku.settings(locals())
 
-django_heroku.settings(locals(),test_runner=False)
+#django_heroku.settings(locals(),test_runner=False)
 SITE_ID = 1
 
 
