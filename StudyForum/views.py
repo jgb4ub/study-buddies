@@ -18,8 +18,7 @@ def profile_page(request, username):
 
 
 def profilepage(request, id):
-    profile = User(userid=id, username = "Sammy")
-    profile.save() 
+    profile = User.objects.get(userid=id)
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
 def editprofile(request, id):
