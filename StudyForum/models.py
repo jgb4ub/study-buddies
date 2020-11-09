@@ -4,7 +4,7 @@ from django.utils import timezone
 import random
 # Create your models here.
 class User(models.Model):
-    username = models.CharField(max_length = 12)
+    username = models.CharField(max_length = 12, default="default username")
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
     password = models.CharField(max_length = 12)
