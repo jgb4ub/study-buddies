@@ -3,7 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 import random
 # Create your models here.
-class User(models.Model):
+class User(AbstractUser):
     username = models.CharField(max_length = 12, default="default username")
     firstname = models.CharField(max_length = 12, default='Sammy')
     lastname = models.CharField(max_length = 12, default = 'Lahrime')
