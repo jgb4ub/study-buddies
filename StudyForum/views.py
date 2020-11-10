@@ -93,4 +93,3 @@ def enrollcourse(request, id):
     user = get_object_or_404(User, id=id)
     user.courses.add(course)
     return render(request, 'studyforum/index.html')
-
