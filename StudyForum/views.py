@@ -74,3 +74,23 @@ def addcourse(request, id):
     user.save
     return render(request, 'studyforum/index.html')
 
+def courseremoval(request):
+    return render(request, 'studyforum/course_removal.html')
+
+def removecourse(request, id):
+    course_name = request.POST.get("name", False)
+    course = get_object_or_404(Course, name=course_name)
+    user = get_object_or_404(User, id=id)
+    user.courses.remove(course)
+    return render(request, 'studyforum/index.html')
+
+def courseenrollment(request):
+    return render(request, 'studyforum/course_enrollment.html')
+
+def enrollcourse(request, id):
+    course_name = request.POST.get("name", False)
+    course = get_object_or_404(Course, name=course_name)
+    user = get_object_or_404(User, id=id)
+    user.courses.add(course)
+    return render(request, 'studyforum/index.html')
+

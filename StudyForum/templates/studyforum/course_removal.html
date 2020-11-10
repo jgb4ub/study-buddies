@@ -1,0 +1,53 @@
+{% extends './global_template.html' %} {% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+</head>
+<body>
+<div class = "col-md-4"></div>
+
+<form action = "{% url 'studyforum:removecourse' id=user.id %}" method = "post">
+    {% csrf_token %}
+    <div class="row column-positioning">
+        <div class="col-md-6">
+            <label>Course Name</label>
+            <input type="text" class="form-control" id="subject-area" name="name">
+        </div>
+    </div>
+    <div class="row check-box-row">
+        <div class="col-md-6">
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" name="postable">
+            </div>
+            <button type="submit" style="margin-top:10px" class="btn btn-dark" id="submit-question-button" name="submit-question-button">Remove Course</button>
+        </div>
+    </div>
+</form>
+
+<!--
+    <div class="row bottom-column">
+        <div class="col-md-6" style="border-top-style:solid">
+            <h1 style="margin-top:30px">Recently Submitted Posts: </h1>
+            <div class="card z-depth-0 bordered" id="cardReader">
+                <div class="card-body" id="card-recent">
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+
+
+</body>
+</html>
+
+{% endblock %}
