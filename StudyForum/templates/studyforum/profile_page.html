@@ -11,10 +11,13 @@
             Name: {{profile.username}}
         </div>
         <div class="p">
-            Major: 
+            Major: {{profile.major}}
         </div>
         <div class="p">
-            Year: 
+            Courses: 
+            {% for course in user.courses.all %}
+            <li>{{course.name}}</li>
+            {% endfor %}
         </div>
         </div>
     </div>

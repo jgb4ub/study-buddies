@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .models import User, Post, Message
+from django.shortcuts import get_object_or_404
+from .models import User, Post, Message, Course
 
 def index(request):
     return render(request, 'studyforum/index.html')
@@ -59,3 +60,17 @@ def messageReceived(request, user_id):
     #user_messages = user_messages.union(user_messages2)
     message_list = user_messages.order_by('-time')
     return render(request, 'studyforum/receivechat.html', {'messages': message_list})
+
+def coursesubmit(request):
+    return render(request, 'studyforum/course_submission.html')
+
+def addcourse(request, id):
+    new_course_name = request.POST.get("name",False)
+    new_course_professor = request.POST.get("professor", False)
+    new_course = Course(name = new_course_name, professor = new_course_professor)
+    new_course.save()
+    user = get_object_or_404(User, id=id)
+    user.courses.add(new_course)
+    user.save
+    return render(request, 'studyforum/index.html')
+
