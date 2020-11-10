@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponse
 from .models import User, Post, Message
 
 def index(request):
@@ -17,7 +18,7 @@ def profile_page(request, id):
 
 def editprofile(request, id):
     return render(request, 'studyforum/index.html')
-    
+
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
 
@@ -49,17 +50,22 @@ def sendmessage(request):
     message_content = request.POST.get("message",False)
     message_sender = request.POST.get("sender", False)
     message_receiver = request.POST.get("receiver",False)
-    new_message = Message(content = message_content, sender = message_sender, recipient = message_receiver)
-    new_message.save()
-    post_list = Post.objects.all()
-    context = {'post_list': post_list}
-    return render(request, 'studyforum/postings.html',context)
+    new_message = Message(content=message_content, sender=message_sender, recipient=message_receiver)
+    #new_message.save()
+
+    context = {'messages': new_message}
+    return render(request, 'studyforum/receivechat.html',{'messages': new_message})
+
+    #post_list = Post.objects.all()
+    #context = {'post_list': post_list}
+    #return render(request, 'studyforum/postings.html',context)
+
 
 def messageReceived(request):
     message_recipient = request.POST.get("receiver",False)
-    user_messages = Message.objects.filter(recipient=message_recipient)
+    user_messages = Message.objects.all()
     #user_messages2 = Message.objects.filter(recipient=user_id)
     #user_messages = user_messages.union(user_messages2)
-    message_list = user_messages.order_by('-time')
-    print(message_recipient)
+    message_list = user_messages
+    #print(message_recipient)
     return render(request, 'studyforum/receivechat.html', {'messages': message_list})
