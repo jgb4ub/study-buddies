@@ -43,6 +43,7 @@
                 <div class="card-body" id ="card-four">
                   Content: {{post.content}}
                   ID: {{post.id}}
+                  Course: {{post.course}}
                   <h1>
                     <form>
                       <button formaction="{% url 'studyforum:postpage' post.id %}" class = "btn btn-block btn-primary big-button">Visit Post</button>
