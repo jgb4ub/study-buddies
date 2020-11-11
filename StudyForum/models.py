@@ -48,7 +48,7 @@ class Score(models.Model):
             message = client.messages.create(
                               body='Hi there!',
                               from_='+12285674137',
-                              to='+7037178673'
+                              to='+17037178673'
                           )
 
             print(message.sid)
