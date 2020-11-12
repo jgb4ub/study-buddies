@@ -11,11 +11,17 @@ class Course(models.Model):
     rating = models.IntegerField(default=0)
     name = models.CharField(max_length=12, default="na", unique=True)
     professor = models.CharField(max_length=30, default="na")
+    time = models.CharField(max_length=10)
 
 class User(AbstractUser):
     year = models.CharField(max_length = 100, default='third year')
     major = models.CharField(max_length = 100, default="computer science")
     courses = models.ManyToManyField(Course)
+    fives = models.ManyToManyField(Course, related_name="fives")
+    fours = models.ManyToManyField(Course, related_name="fours")
+    threes = models.ManyToManyField(Course, related_name="threes")
+    twos = models.ManyToManyField(Course, related_name="twos")
+    ones = models.ManyToManyField(Course, related_name="ones")
 
 class LoginAttempt(models.Model):
     username_passed_in = models.CharField(max_length = 12)

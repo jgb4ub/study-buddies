@@ -33,7 +33,19 @@
           <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:index' %}">Sign-in</a>
         </li>
         <li class="nav-item">
+          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:profile_page' id=user.id %}">Profile</a>
+        </li>
+        <li class="nav-item">
           <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:post' %}">Postings</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:coursesubmit' %}">Create a Course</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:courseenrollment' %}">Enroll in a Course</a>
+        </li>
+        <li class="nav-item">
+          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:courseremoval' %}">Remove a Course</a>
         </li>
       </ul>
     </div>
