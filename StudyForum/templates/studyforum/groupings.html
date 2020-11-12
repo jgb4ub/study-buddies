@@ -22,9 +22,16 @@
                 </div>
                 <div class="card-body" id ="card-four">
                   Content: {{group.group_description}}
+                  ID: {{group.id}}
+                  Groupmembers:
+                  {% for member in member_list %}
+                  {% if member.group_id == group.id %}
+                  {{member.first_name}}
+                  {% endif %}
+                  {% endfor %}
                   <h1>
                     <form>
-                      <button formaction="{% url 'studyforum:sendsms' %}" class = "btn btn-block btn-primary big-button">Join Group</button>
+                      <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary big-button">Join Group</button>
                     </form>
                   </h1>
                 </div>
