@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
-from .models import User, Post, Message, Course, Group, Score
+from .models import User, Post, Message, Course, Group, Score, GroupMember
 
 def index(request):
     return render(request, 'studyforum/index.html')
@@ -14,7 +14,8 @@ def post(request):
 
 def groups(request):
     group_list = Group.objects.all()
-    context = {'group_list' : group_list}
+    member_list = GroupMember.objects.all()
+    context = {'group_list' : group_list, 'member_list' : member_list}
     return render(request, 'studyforum/groupings.html',context)
 
 def profile_page(request, id):
@@ -49,14 +50,28 @@ def addgroup(request):
     new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description)
     new_group.save()
     group_list = Group.objects.all()
-    context = {'group_list' : group_list}
+    member_list = GroupMember.objects.all()
+    context = {'group_list' : group_list, 'member_list' : member_list}
     return render(request,'studyforum/groupings.html',context)
 
-def sendsms(request):
-    new_score = Score(result = 20)
+def joingroup(request, user_id, group_id):
+    group_members = GroupMember.objects.all()
+    state = False
+    user_list = User.objects.all().get(id = user_id)
+    new_name = user_list.username
+    message_send = "Hello Davin, " + new_name + " just joined your group!"
+    new_score = Score(result = 20, message = message_send)
     new_score.save()
+
+    for e in GroupMember.objects.all():
+        if(e.member_id == user_id and group_id == e.group_id):
+            state = True
+    if(state == False):
+        new_group_member = GroupMember(first_name = new_name, group_id = group_id, member_id = user_id)
+        new_group_member.save()
     group_list = Group.objects.all()
-    context = {'group_list' : group_list}
+    member_list = GroupMember.objects.all()
+    context = {'group_list' : group_list, 'member_list' : member_list}
     return render(request,'studyforum/groupings.html',context)
 
 def postpage(request, post_id):

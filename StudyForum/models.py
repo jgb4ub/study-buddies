@@ -41,6 +41,7 @@ class Group(models.Model):
     phone = models.CharField(max_length = 12, default="na")
 
 class GroupMember(models.Model):
+    first_name = models.CharField(max_length = 12, default="na")
     group_id = models.IntegerField()
     member_id = models.IntegerField()
 
@@ -52,6 +53,8 @@ class Message(models.Model):
 
 class Score(models.Model):
     result = models.PositiveIntegerField()
+    message = models.CharField(max_length=50, default="na")
+    
     def __str__(self):
         return str(self.result)
 
@@ -62,7 +65,7 @@ class Score(models.Model):
             client = Client(account_sid, auth_token)
 
             message = client.messages.create(
-                              body='Hi there!',
+                              body= self.message,
                               from_='+12285674137',
                               to='+17037178673'
                           )
