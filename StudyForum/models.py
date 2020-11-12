@@ -28,6 +28,7 @@ class Post(models.Model):
     category = models.CharField(max_length = 20, default="na")
     content = models.CharField(max_length = 100, default="na")
     course = models.CharField(max_length = 20, default="na")
+    link = models.CharField(max_length = 50, default="na")
 
 class Message(models.Model):
     sender = models.CharField(max_length = 12, default = "anonymous")
