@@ -3,7 +3,7 @@ from django.conf import settings
 from django.utils import timezone
 import requests, json
 from django.contrib.auth.models import AbstractUser
-from django.contrib.postgres.fields import ArrayField
+#from django.contrib.postgres.fields import ArrayField
 from twilio.rest import Client
 # Create your models here.
 
@@ -22,7 +22,6 @@ class LoginAttempt(models.Model):
     username_passed_in = models.CharField(max_length = 12)
     password_passed_in = models.CharField(max_length = 12)
 
-
 class Post(models.Model):
     username = models.CharField(max_length = 12, default="na")
     subject = models.CharField(max_length = 50, default="na")
@@ -30,16 +29,15 @@ class Post(models.Model):
     content = models.CharField(max_length = 100, default="na")
 
 class Group(models.Model):
-    #member_list = models.ManyToManyField(User)
-    #member_list = ArrayField(models.IntegerField())
     group_name = models.CharField(max_length = 12, default="na")
     course = models.CharField(max_length=12, default="na")
     group_description = models.CharField(max_length = 100, default="na")
     creator = models.CharField(max_length = 12, default="na")
     phone = models.CharField(max_length = 12, default="na")
 
-
-
+class GroupMember(models.Model):
+    group_id = models.IntegerField()
+    member_id = models.IntegerField()
 
 class Message(models.Model):
     sender = models.CharField(max_length = 12, default = "anonymous")

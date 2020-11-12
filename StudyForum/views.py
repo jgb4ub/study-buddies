@@ -13,8 +13,8 @@ def post(request):
     return render(request, 'studyforum/postings.html',context)
 
 def groups(request):
-    post_list = Post.objects.all()
-    context = {'post_list': post_list}
+    group_list = Group.objects.all()
+    context = {'group_list' : group_list}
     return render(request, 'studyforum/groupings.html',context)
 
 def profile_page(request, id):
