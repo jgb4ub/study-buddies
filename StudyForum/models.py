@@ -8,7 +8,6 @@ from twilio.rest import Client
 
 
 class Course(models.Model):
-    rating = models.IntegerField(default=0)
     name = models.CharField(max_length=12, default="na", unique=True)
     professor = models.CharField(max_length=30, default="na")
     time = models.CharField(max_length=10)
