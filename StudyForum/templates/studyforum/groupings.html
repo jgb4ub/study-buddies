@@ -1,0 +1,49 @@
+{% extends './global_template.html' %}
+{% block content %}
+  <div class = "container my-3">
+      <nav class = "breadcrumb">
+        <h6 class = "breadcrumb-item-active">Current Group Posts</h6>
+      </nav>
+      <div class = "row">
+          <div class="col-12 col-xl-9">
+
+          </div>
+      </div>
+  </div>
+<div class = "row">
+  <div class ="col-md-4"></div>
+  <div class = "col-md-4">
+        {% for group in group_list %}
+        <div class="card z-depth-0 bordered">
+                <div class="card-header">
+                  <h1>
+                  Group Name: {{group.group_name}}
+                  </h1>
+                </div>
+                <div class="card-body" id ="card-four">
+                  Content: {{group.group_description}}
+                  <h1>
+                    <form>
+                      <button formaction="{% url 'studyforum:sendsms' %}" class = "btn btn-block btn-primary big-button">Join Group</button>
+                    </form>
+                  </h1>
+                </div>
+
+              </div>
+        {% endfor %}
+        </div>
+        <div class = "col-md-4"></div>
+  </div>
+    <!--<button onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-block btn-primary big-button">Create New Post</button>-->
+    <div class = "row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+    <form>
+    <button formaction="{% url 'studyforum:groupsubmit' %}" class = "btn btn-block btn-primary big-button">Create New Group</button>
+    </form>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+    <!--href="{% url 'studyforum:index' %}"-->
+    {% endblock%}
+

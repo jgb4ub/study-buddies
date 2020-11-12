@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
-from .models import User, Post, Message, Course
+from .models import User, Post, Message, Course, Group, Score
 
 def index(request):
     return render(request, 'studyforum/index.html')
@@ -11,6 +11,11 @@ def post(request):
     post_list = Post.objects.all()
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
+
+def groups(request):
+    post_list = Post.objects.all()
+    context = {'post_list': post_list}
+    return render(request, 'studyforum/groupings.html',context)
 
 def profile_page(request, id):
     profile = User.objects.get(id=id)
@@ -22,6 +27,12 @@ def editprofile(request, id):
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
 
+
+def groupsubmit(request):
+    return render(request, 'studyforum/group_submission_form.html')
+
+
+
 def addpost(request):
     new_post_content = request.POST.get("question",False)
     new_post_subject = request.POST.get("submitter", False)
@@ -31,9 +42,26 @@ def addpost(request):
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
 
+def addgroup(request):
+    new_group_name = request.POST.get("groupname",False)
+    new_course_name = request.POST.get("coursename",False)
+    new_group_description = request.POST.get("groupdescription", False)
+    new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description)
+    new_group.save()
+    group_list = Group.objects.all()
+    context = {'group_list' : group_list}
+    return render(request,'studyforum/groupings.html',context)
+
+def sendsms(request):
+    new_score = Score(result = 20)
+    new_score.save()
+    group_list = Group.objects.all()
+    context = {'group_list' : group_list}
+    return render(request,'studyforum/groupings.html',context)
+
 def postpage(request, post_id):
     post = Post.objects.get(pk=post_id)
-    return render(request, 'studyforum/postpage.html', {'post': post})
+    return render(request, 'studyforum/postpage.html',{'post': post})
 
 def chat(request):
     return render(request, 'studyforum/chat.html')
@@ -71,7 +99,7 @@ def addcourse(request, id):
     new_course.save()
     user = get_object_or_404(User, id=id)
     user.courses.add(new_course)
-    user.save
+    user.save()
     return render(request, 'studyforum/index.html')
 
 def courseremoval(request):
