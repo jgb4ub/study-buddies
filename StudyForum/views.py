@@ -25,7 +25,9 @@ def postsubmit(request):
 def addpost(request):
     new_post_content = request.POST.get("question",False)
     new_post_subject = request.POST.get("submitter", False)
-    new_post = Post(content = new_post_content, subject = new_post_subject)
+    new_post_course = request.POST.get("course", False)
+    new_post_link = request.POST.get("link", False)
+    new_post = Post(content = new_post_content, subject = new_post_subject, course = new_post_course, link = new_post_link)
     new_post.save()
     post_list = Post.objects.all()
     context = {'post_list': post_list}
