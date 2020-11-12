@@ -93,13 +93,25 @@ def coursesubmit(request):
     return render(request, 'studyforum/course_submission.html')
 
 def addcourse(request, id):
+    rating = request.POST.get("rating", False)
     new_course_name = request.POST.get("name",False)
     new_course_professor = request.POST.get("professor", False)
-    new_course = Course(name = new_course_name, professor = new_course_professor)
+    new_course_time = request.POST.get("time", False)
+    new_course = Course(name = new_course_name, professor = new_course_professor, time=new_course_time)
     new_course.save()
     user = get_object_or_404(User, id=id)
     user.courses.add(new_course)
-    user.save()
+    user.save
+    if (rating == "5"):
+        user.fives.add(new_course)
+    elif (rating == "4"):
+        user.fours.add(new_course)
+    elif (rating == "3"):
+        user.threes.add(new_course)
+    elif (rating == "2"):
+        user.twos.add(new_course)
+    else:
+        user.ones.add(new_course)
     return render(request, 'studyforum/index.html')
 
 def courseremoval(request):
@@ -110,14 +122,40 @@ def removecourse(request, id):
     course = get_object_or_404(Course, name=course_name)
     user = get_object_or_404(User, id=id)
     user.courses.remove(course)
+    for i in user.fives.all():
+        if i.name == course_name:
+            user.fives.remove(i)
+    for i in user.fours.all():
+        if i.name == course_name:
+            user.fours.remove(i)
+    for i in user.threes.all():
+        if i.name == course_name:
+            user.threes.remove(i)
+    for i in user.twos.all():
+        if i.name == course_name:
+            user.twos.remove(i)
+    for i in user.ones.all():
+        if i.name == course_name:
+            user.ones.remove(i)
     return render(request, 'studyforum/index.html')
 
 def courseenrollment(request):
     return render(request, 'studyforum/course_enrollment.html')
 
 def enrollcourse(request, id):
+    rating = request.POST.get("rating", False)
     course_name = request.POST.get("name", False)
     course = get_object_or_404(Course, name=course_name)
     user = get_object_or_404(User, id=id)
     user.courses.add(course)
+    if (rating == "5"):
+        user.fives.add(course)
+    elif (rating == "4"):
+        user.fours.add(course)
+    elif (rating == "3"):
+        user.threes.add(course)
+    elif (rating == "2"):
+        user.twos.add(course)
+    else:
+        user.ones.add(course)
     return render(request, 'studyforum/index.html')
