@@ -37,7 +37,8 @@ def groupsubmit(request):
 def addpost(request):
     new_post_content = request.POST.get("question",False)
     new_post_subject = request.POST.get("submitter", False)
-    new_post = Post(content = new_post_content, subject = new_post_subject)
+    new_post_discord = request.POST.get("discord", False)
+    new_post = Post(content = new_post_content, subject = new_post_subject, discord_link = new_post_discord)
     new_post.save()
     post_list = Post.objects.all()
     context = {'post_list': post_list}
@@ -46,8 +47,9 @@ def addpost(request):
 def addgroup(request):
     new_group_name = request.POST.get("groupname",False)
     new_course_name = request.POST.get("coursename",False)
+    new_post_discord = request.POST.get("discord", False)
     new_group_description = request.POST.get("groupdescription", False)
-    new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description)
+    new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description, discord_link = new_post_discord)
     new_group.save()
     group_list = Group.objects.all()
     member_list = GroupMember.objects.all()

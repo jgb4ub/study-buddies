@@ -32,6 +32,8 @@ class Post(models.Model):
     subject = models.CharField(max_length = 50, default="na")
     category = models.CharField(max_length = 20, default="na")
     content = models.CharField(max_length = 100, default="na")
+    discord_link = models.CharField(max_length = 100, default="na")
+    
 
 class Group(models.Model):
     group_name = models.CharField(max_length = 12, default="na")
@@ -39,6 +41,7 @@ class Group(models.Model):
     group_description = models.CharField(max_length = 100, default="na")
     creator = models.CharField(max_length = 12, default="na")
     phone = models.CharField(max_length = 12, default="na")
+    discord_link = models.CharField(max_length = 100, default="na")
 
 class GroupMember(models.Model):
     first_name = models.CharField(max_length = 12, default="na")
