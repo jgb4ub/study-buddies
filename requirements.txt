@@ -7,7 +7,6 @@ django-heroku
 djangorestframework
 gunicorn
 Markdown
-psycopg2
 pytz
 sqlparse
 virtualenv
