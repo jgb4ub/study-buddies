@@ -7,47 +7,66 @@
     <div class="col-md-4">
         <h1>Student Profile Page</h1>
         <div style = "margin-top:50px">
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">Name: {{profile.username}}</div>
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">Major: {{profile.major}}</div>
         <div class="p">
-            Name: {{profile.username}}
+          <div class="card" style = "margin-top: 30px">
+  <div class="card-header">
+    My Courses
+  </div>
+    <ul class="list-group list-group-flush">
+    {% for course in user.courses.all %}
+    <li class="list-group-item">Course: {{course.name}} Time:{{course.time}} Instructor:{{course.professor}}</li>
+    {% endfor %}
+  </ul>
+</div>
+
+
         </div>
         <div class="p">
-            Major: {{profile.major}}
-        </div>
-        <div class="p">
-            Courses: 
-            {% for course in user.courses.all %}
-            <li>{{course.name}} {{course.time}}  {{course.professor}}</li>
-            {% endfor %}
-        </div>
-        <div class="p">
-          Courses you rated a 5: 
+          <div class="card" style = "margin-top: 30px">
+              <div class="card-header">
+    My Ratings
+  </div>
+          <h6>Courses you rated a 5: </h6>
+              <ul class="list-group list-group-flush">
           {% for course in user.fives.all %}
-          <li>{{course.name}}</li>
+              <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
-        </div>
+          </ul>
         <div class="p">
-        Courses you rated a 4: 
+          <h6>Courses you rated a 4: </h6>
+                      <ul class="list-group list-group-flush">
         {% for course in user.fours.all %}
-        <li>{{course.name}}</li>
+              <li class="list-group-item">Course: {{course.name}}</li>
         {% endfor %}
+                  </ul>
         </div>
         <div class="p">
-          Courses you rated a 3: 
+          <h6>Courses you rated a 3: </h6>
+                                <ul class="list-group list-group-flush">
           {% for course in user.threes.all %}
-          <li>{{course.name}}</li>
+                        <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
+          </ul>
         </div>
         <div class="p">
-          Courses you rated a 2: 
+          <h6>Courses you rated a 2: </h6>
+                                <ul class="list-group list-group-flush">
           {% for course in user.twos.all %}
-          <li>{{course.name}}</li>
+                        <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
+          </ul>
         </div>
         <div class="p">
-          Courses you rated a 1: 
+          <h6>Courses you rated a 1: </h6>
+                                <ul class="list-group list-group-flush">
           {% for course in user.ones.all %}
-          <li>{{course.name}}</li>
+                        <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
+          </ul>
+          </div>
+          </div>
         </div>
         </div>
     </div>
