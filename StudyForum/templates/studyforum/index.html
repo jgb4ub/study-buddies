@@ -8,14 +8,16 @@
 </head>
 
 <body>
-<div class = "row" style = "margin-top: 100px;">
+<div class = "row" style = "margin-top: 100px; text-align: center;">
     <div class = "col-md-4"></div>
     <div class = "col-md-4">
     {% if user.is_authenticated %}
     <h1>Welcome! </h1>
     <h1>{{ user.first_name }}</h1>
     <h1>Login successful!</h1>
-    
+    <h4>Welcome to the StudyForum application!</h4>
+    <h10>Click enroll in a course to enroll in an already existing course!</h10>
+    <h10>Click create a course to create a new course!</h10>
     {% else %}
     <h1>Login Page</h1>
     <button onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-block btn-primary big-button">Please Login With Google Here!</button>
