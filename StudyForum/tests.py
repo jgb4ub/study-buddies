@@ -3,15 +3,19 @@ from .models import User, LoginAttempt, Post
 # Create your tests here.
 class TestCase(TestCase):
     def setUp(self):
-        User.objects.create(username="di3re", firstname = "Nick", lastname = "Yelp", password = "asdf")
+        User.objects.create(year="2010", major = "CS")
+    #    User.ob
+        '''
         User.objects.create(username="asdf", firstname = "James", lastname = "David", password = "asdfda")
         Post.objects.create(username = "qe31a",subject = "Math",category = "study",content = "looking for buddy")
         Post.objects.create(username = "ql9cd",subject = "STS",category = "chill",content = "chilling")
-
+        '''
     def test_user_firstname(self):
-        Nick = User.objects.get(firstname="Nick")
-        self.assertEqual(Nick.firstname, "Nick")
+        Nick = User.objects.get(major="CS")
+        self.assertEqual(Nick.major, "CS")
 
+
+    '''
     def test_user_lastname(self):
         valid_lastname = User.objects.get(username="asdf")
         self.assertEquals(valid_lastname.lastname, "David")
@@ -39,4 +43,4 @@ class TestCase(TestCase):
     def test_login_content(self):
         posting4 = Post.objects.get(username = "ql9cd")
         self.assertEquals(posting4.content, "chilling")
-        
+        '''
