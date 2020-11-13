@@ -9,7 +9,6 @@ class TestCase(TestCase):
         GroupMember.objects.create(first_name="Davin", group_id=1, member_id=2)
         Message.objects.create(sender="Davin", recipient="Josh",content="hi there")
 
-
     def test_year1(self):
         Nick = User.objects.get(major="CS")
         self.assertEqual(Nick.major, "CS")
