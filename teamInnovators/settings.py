@@ -14,7 +14,7 @@ import os
 from pathlib import Path
 from twilio.rest import Client
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)a
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
