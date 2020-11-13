@@ -9,6 +9,6 @@ deploy:
   provider: heroku
   api_key: 
     secure: "WZZWz06cpMadn46Y6+F8sAR3xgKWjA4N2J8K+7ntr5ywszQ7Ojg6ExM1r2bRHID+dmgfvW+zc0vx6g6fVcr1EXsnm2kz31Jmt0uMnQCc/af4Zstnm11tagz6KldkjTBVQUAV+SdiMkWza2KaRyFjCWxoW4vpbStmCl4GKV037ug9RaUeur1Y/C9ESUlJLhbiJTn1VFFUVK6qzQoH3PhuiXQyjkDRNNS1Gm52cc9m9ONUs3IBhHmrBrgLHNyTwFtdkjY/9dUVI8tKGawWYKi2fZy9cyHHqa8LdQaq/L1x2iPrRX1d7j0hAyicBnJlZVA7l6u4zn9exJJJpxnd0caFbq9N17aHqszm13l9nllQIuxYUeJKRY7hXtU9+zWBFESjZuRPNA/P5QlcBaF+IBDHknhOoR0dQpQC0ZzGHDqSJI1xXGNGF2ia4fhnd7OjPoB2fVGFHuIEYvI12zsTEBmuE1EuX1lXnWGDWAiiIrk7dZ3ty01OknZws+GT0MBwlGzaWgddUsMBAGTOQAviZtgQ+ko4Bd1LdfM/0WevzjAW519QVoGxINvjWUAYib95d2Etca3lJ29vEeCVd3Ywb6V8KMx3xyzwuoiRZwVu1fAdi6VOVka3mhy0BoBX5ExwWSPDNT6XnV+QQRwcn9zH4vkElt7mZoUbfrJimHEsUBYXefM="
-  app: the-innovators
+  app: the-innovators-app
   on:
     repo: uva-cs3240-f20/project-1-02
