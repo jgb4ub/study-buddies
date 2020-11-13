@@ -53,6 +53,7 @@ class Message(models.Model):
     recipient = models.CharField(max_length = 12, default = "anonymous")
     content = models.CharField(max_length = 250, default = "(empty message)")
     time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+#
 
 class Score(models.Model):
     result = models.PositiveIntegerField()
