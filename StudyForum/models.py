@@ -57,6 +57,7 @@ class Message(models.Model):
 class Score(models.Model):
     result = models.PositiveIntegerField()
     message = models.CharField(max_length=50, default="na")
+    phone = models.CharField(max_length=50, default="na")
     
     def __str__(self):
         return str(self.result)
@@ -70,7 +71,7 @@ class Score(models.Model):
             message = client.messages.create(
                               body= self.message,
                               from_='+12285674137',
-                              to='+17037178673'
+                              to='+1' + self.phone
                           )
 
             print(message.sid)

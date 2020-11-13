@@ -48,8 +48,9 @@ def addgroup(request):
     new_group_name = request.POST.get("groupname",False)
     new_course_name = request.POST.get("coursename",False)
     new_post_discord = request.POST.get("discord", False)
+    new_phone = request.POST.get("phone", False)
     new_group_description = request.POST.get("groupdescription", False)
-    new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description, discord_link = new_post_discord)
+    new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description, discord_link = new_post_discord, phone = new_phone)
     new_group.save()
     group_list = Group.objects.all()
     member_list = GroupMember.objects.all()
@@ -62,7 +63,7 @@ def joingroup(request, user_id, group_id):
     user_list = User.objects.all().get(id = user_id)
     new_name = user_list.username
     message_send = "Hello Davin, " + new_name + " just joined your group!"
-    new_score = Score(result = 20, message = message_send)
+    new_score = Score(result = 20, message = message_send, phone = '7037178673')
     new_score.save()
 
     for e in GroupMember.objects.all():
