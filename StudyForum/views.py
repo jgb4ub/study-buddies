@@ -38,7 +38,8 @@ def addpost(request):
     new_post_content = request.POST.get("question",False)
     new_post_subject = request.POST.get("submitter", False)
     new_post_discord = request.POST.get("discord", False)
-    new_post = Post(content = new_post_content, subject = new_post_subject, discord_link = new_post_discord)
+    new_post_username = request.POST.get("username", False)
+    new_post = Post(username = new_post_username, content = new_post_content, subject = new_post_subject, discord_link = new_post_discord)
     new_post.save()
     post_list = Post.objects.all()
     context = {'post_list': post_list}

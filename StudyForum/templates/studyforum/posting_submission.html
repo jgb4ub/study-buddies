@@ -28,28 +28,12 @@
         </div>
     </form>
 </div>
-
 <form action = "{% url 'studyforum:addpost' %}" method = "post">
     {% csrf_token %}
-    <div class="form-group row" style="margin-left:50px">
-        <div style="margin-top:-15px" class="col-md-2">
-            <label style="padding-top:22px">Professor Name</label>
-            <select class="form-control" name="prof">
-                <option>John Smith</option>
-				<option>Jane Doe</option>
-            </select>
-        </div>
-        <div style="margin-top:-15px" class="col-md-4">
-            <label style="padding-top:22px">Class</label>
-            <select class="form-control" name="course">
-                <option>CS 3999</option>
-				<option>CS 4640</option>
-            </select>
-        </div>
-    </div>
-
     <div class="row column-positioning">
         <div class="col-md-6">
+            <label>Your username: </label>
+            <input type="text" class="form-control" id="subject-area" name="username">
             <label>Post Subject</label>
             <input type="text" class="form-control" id="subject-area" name="submitter">
             <label>Discord Link</label>

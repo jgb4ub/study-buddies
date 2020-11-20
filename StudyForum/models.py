@@ -28,10 +28,10 @@ class LoginAttempt(models.Model):
     password_passed_in = models.CharField(max_length = 12)
 
 class Post(models.Model):
-    username = models.CharField(max_length = 12, default="na")
+    username = models.CharField(max_length = 20, default="na")
     subject = models.CharField(max_length = 50, default="na")
-    category = models.CharField(max_length = 20, default="na")
-    content = models.CharField(max_length = 100, default="na")
+    category = models.CharField(max_length = 100, default="na")
+    content = models.CharField(max_length = 500, default="na")
     discord_link = models.CharField(max_length = 100, default="na")
     
 
