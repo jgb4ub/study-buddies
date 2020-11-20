@@ -14,6 +14,7 @@ class Course(models.Model):
     time = models.CharField(max_length=10)
 
 class User(AbstractUser):
+    username = models.CharField(max_length=20, unique=True)
     year = models.CharField(max_length = 100, default='third year')
     major = models.CharField(max_length = 100, default="computer science")
     courses = models.ManyToManyField(Course)

@@ -22,8 +22,16 @@ def profile_page(request, id):
     profile = User.objects.get(id=id)
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
-def editprofile(request, id):
-    return render(request, 'studyforum/index.html')
+def editprofile(request):
+    return render(request, 'studyforum/edit_profile.html')
+
+def profile_editor(request, id):
+    profile = User.objects.get(id=id)
+    username = request.POST.get("username", False)
+    major = request.POST.get("major", False)
+    profile.username = username
+    profile.major = major
+    return render(request, 'studyforum/profile_page.html', {'profile': profile})
     
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
