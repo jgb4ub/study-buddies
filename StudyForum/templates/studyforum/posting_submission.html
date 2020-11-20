@@ -15,21 +15,15 @@
 </head>
 <body>
 <div class = "col-md-4"></div>
-<div style="margin-bottom: 30px" class="column-positioning col-md-4">
-    <form>
-        <h1>Pick a posting category:</h1>
-        <div class="btn btn-group-toggle" style="background-color:lightgray" class="col-md-8">
-            <button type="button" class="btn btn-dark" data-toggle="button" name="pressor1">
-                Class Question
-            </button>
-            <button type="button" class="btn btn-dark" data-toggle="button" name="pressor2">
-                Study Group Find
-            </button>
-        </div>
-    </form>
-</div>
 <form action = "{% url 'studyforum:addpost' id=user.id %}" method = "post">
     {% csrf_token %}
+    <div style="margin-bottom: 30px" class="column-positioning col-md-4">
+        <h1>Pick a posting category:</h1>
+        <div class="col-md-6">
+            <p>Type in whatever category you wish to have, such as study question or course question</p>
+            <input type="text" class="form-control" id="subject-area" name="category">
+        </div>
+    </div>
     <div class="row column-positioning">
         <div class="col-md-6">
             <label>Post Subject</label>
