@@ -32,7 +32,7 @@ def profile_editor(request, id):
     profile.username = username
     profile.major = major
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
-    
+
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
 
@@ -148,7 +148,7 @@ def courseremoval(request):
 
 def removecourse(request, id):
     course_name = request.POST.get("name", False)
-    
+
     try:
         course = get_object_or_404(Course, name=course_name)
         user = get_object_or_404(User, id=id)
@@ -171,7 +171,7 @@ def removecourse(request, id):
         return render(request, 'studyforum/index.html')
     except:
         return render(request, 'studyforum/index.html')
-    
+
 
 def courseenrollment(request):
     return render(request, 'studyforum/course_enrollment.html')

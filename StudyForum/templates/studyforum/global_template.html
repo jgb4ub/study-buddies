@@ -8,7 +8,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    
+
     <link rel = "stylesheet" type="text/css" href = "{% static 'css/main.css'%}">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,6 +41,7 @@
           <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:index' %}">Sign-in</a>
         </li>
         {% endif %}
+        {% if user.is_authenticated %}
         <li class="nav-item">
           <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:post' %}">Postings</a>
         </li>
@@ -56,6 +57,7 @@
         <li class="nav-item">
           <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:groups' %}">Groups</a>
         </li>
+        {% endif %}
       </ul>
     </div>
   </nav>
@@ -88,7 +90,7 @@
   margin-top:500px;
   width: 100%;
   position: relative;
-  text-align: center;  
+  text-align: center;
 }
 
 </style>
