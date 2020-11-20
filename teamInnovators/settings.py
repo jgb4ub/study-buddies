@@ -156,7 +156,7 @@ AUTHENTICATION_BACKENDS = [
 #   django_heroku.settings(locals())
 
 django_heroku.settings(locals(),test_runner=False)
-SITE_ID = 3
+SITE_ID = 4
 
 
 LOGIN_REDIRECT_URL = '/'
