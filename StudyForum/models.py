@@ -33,6 +33,7 @@ class Post(models.Model):
     category = models.CharField(max_length = 100, default="na")
     content = models.CharField(max_length = 500, default="na")
     discord_link = models.CharField(max_length = 100, default="na")
+    user_id = models.IntegerField()
     
 
 class Group(models.Model):

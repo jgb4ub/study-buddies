@@ -28,12 +28,10 @@
         </div>
     </form>
 </div>
-<form action = "{% url 'studyforum:addpost' %}" method = "post">
+<form action = "{% url 'studyforum:addpost' id=user.id %}" method = "post">
     {% csrf_token %}
     <div class="row column-positioning">
         <div class="col-md-6">
-            <label>Your username: </label>
-            <input type="text" class="form-control" id="subject-area" name="username">
             <label>Post Subject</label>
             <input type="text" class="form-control" id="subject-area" name="submitter">
             <label>Discord Link</label>
