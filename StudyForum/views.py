@@ -177,23 +177,33 @@ def courseenrollment(request):
     return render(request, 'studyforum/course_enrollment.html')
 
 def enrollcourse(request, id):
+    found = False
     rating = request.POST.get("rating", False)
     course_name = request.POST.get("name", False)
     try:
         course = get_object_or_404(Course, name=course_name)
         user = get_object_or_404(User, id=id)
-        user.courses.add(course)
-        if (rating == "5"):
-            user.fives.add(course)
-        elif (rating == "4"):
-            user.fours.add(course)
-        elif (rating == "3"):
-            user.threes.add(course)
-        elif (rating == "2"):
-            user.twos.add(course)
-        else:
-            user.ones.add(course)
+        for c in user.courses.all():
+            if c.name == course.name:
+                found = True
+                break
+        for c in user.fives.all():
+            if c.name == course.name:
+                found = True
+                break
+        if not found:
+            user.courses.add(course)
+            if (rating == "5"):
+                user.fives.add(course)
+            elif (rating == "4"):
+                user.fours.add(course)
+            elif (rating == "3"):
+                user.threes.add(course)
+            elif (rating == "2"):
+                user.twos.add(course)
+            else:
+                user.ones.add(course)
         return render(request, 'studyforum/index.html')
     except:
         return render(request, 'studyforum/course_submission.html')
-        #something new
+        
