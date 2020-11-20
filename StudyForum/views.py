@@ -196,3 +196,4 @@ def enrollcourse(request, id):
         return render(request, 'studyforum/index.html')
     except:
         return render(request, 'studyforum/course_submission.html')
+        #something new
