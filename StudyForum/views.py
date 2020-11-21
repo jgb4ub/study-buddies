@@ -31,6 +31,7 @@ def profile_editor(request, id):
     major = request.POST.get("major", False)
     profile.username = username
     profile.major = major
+    profile.save()
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
 def postsubmit(request):

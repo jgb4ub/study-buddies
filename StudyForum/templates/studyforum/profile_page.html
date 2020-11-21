@@ -15,7 +15,7 @@
     My Courses
   </div>
     <ul class="list-group list-group-flush">
-    {% for course in user.courses.all %}
+    {% for course in profile.courses.all %}
     <li class="list-group-item">Course: {{course.name}} Time:{{course.time}} Instructor:{{course.professor}}</li>
     {% endfor %}
   </ul>
@@ -30,14 +30,14 @@
   </div>
           <h6>Courses you rated a 5: </h6>
               <ul class="list-group list-group-flush">
-          {% for course in user.fives.all %}
+          {% for course in profile.fives.all %}
               <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
           </ul>
         <div class="p">
           <h6>Courses you rated a 4: </h6>
                       <ul class="list-group list-group-flush">
-        {% for course in user.fours.all %}
+        {% for course in profile.fours.all %}
               <li class="list-group-item">Course: {{course.name}}</li>
         {% endfor %}
                   </ul>
@@ -45,7 +45,7 @@
         <div class="p">
           <h6>Courses you rated a 3: </h6>
                                 <ul class="list-group list-group-flush">
-          {% for course in user.threes.all %}
+          {% for course in profile.threes.all %}
                         <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
           </ul>
@@ -53,7 +53,7 @@
         <div class="p">
           <h6>Courses you rated a 2: </h6>
                                 <ul class="list-group list-group-flush">
-          {% for course in user.twos.all %}
+          {% for course in profile.twos.all %}
                         <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
           </ul>
@@ -61,7 +61,7 @@
         <div class="p">
           <h6>Courses you rated a 1: </h6>
                                 <ul class="list-group list-group-flush">
-          {% for course in user.ones.all %}
+          {% for course in profile.ones.all %}
                         <li class="list-group-item">Course: {{course.name}}</li>
           {% endfor %}
           </ul>
