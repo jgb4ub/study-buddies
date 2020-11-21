@@ -180,7 +180,10 @@ def enrollcourse(request, id):
         user.ones.add(course)
     return render(request, 'studyforum/index.html')
 
-#def delete_post(request,id):
-#    post_to_delete=Post.objects.get(id=id)
-#    post_to_delete.delete()
-#    return HttpResponseRedirect('/index/')
+def delete_post(request,id):
+    post_to_delete=Post.objects.filter(id=id).delete()
+    #post_to_delete.delete()
+    #Post.save()
+    post_list = Post.objects.all()
+    context = {'post_list': post_list}
+    return render(request, 'studyforum/postings.html',context)
