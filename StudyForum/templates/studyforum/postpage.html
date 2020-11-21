@@ -11,8 +11,9 @@
         <div class="container">
             <div class="row justify-content-center">
               <div class="col-8">
-                <h1 class="mt-2">{{post.subject}}</h1>
-                <p>{{post.username}}</p>
+                <h1 class="mt-2">Subject: {{post.subject}}</h1>
+                <p>User id number: {{post.user_id}}<a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:profile_page' id=post.id %}">Go to user's profile</a></p>
+                <p>Category of post: {{post.category}}</p>
                 <hr class="mt-0 mb-4">
                 <p>{{post.content}}</p>
                 <form><button formaction="{% url 'studyforum:post' %}" class = "btn btn-block btn-primary big-button">Return to forum</button></form>
