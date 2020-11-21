@@ -1,0 +1,26 @@
+<!--
+{% extends './global_template.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class = "row" style = "margin-top: 100px;">
+        <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-8">
+                {% for p in post_to_delete %}
+                    <h1 class="mt-2">Are you sure you want to delete?</h1>
+                    <form><button formaction="{% url 'studyforum:delete_post' %}" class = "btn btn-block btn-primary big-button">Delete post</button></form>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+    </div>
+    </body>
+    </html>
+    {% endblock %}
+  -->

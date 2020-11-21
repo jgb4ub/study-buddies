@@ -3,6 +3,7 @@ from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from .models import User, Post, Message, Course, Group, Score, GroupMember
+from django.http import HttpResponseRedirect
 
 def index(request):
     return render(request, 'studyforum/index.html')
@@ -178,3 +179,8 @@ def enrollcourse(request, id):
     else:
         user.ones.add(course)
     return render(request, 'studyforum/index.html')
+
+#def delete_post(request,id):
+#    post_to_delete=Post.objects.get(id=id)
+#    post_to_delete.delete()
+#    return HttpResponseRedirect('/index/')
