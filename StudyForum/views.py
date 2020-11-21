@@ -199,3 +199,11 @@ def enrollcourse(request, id):
     except:
         return render(request, 'studyforum/course_submission.html')
         #something new
+        
+def delete_post(request,id):
+    post_to_delete=Post.objects.filter(id=id).delete()
+    #post_to_delete.delete()
+    #Post.save()
+    post_list = Post.objects.all()
+    context = {'post_list': post_list}
+    return render(request, 'studyforum/postings.html',context)
