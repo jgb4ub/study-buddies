@@ -20,7 +20,10 @@ def groups(request):
 
 def profile_page(request, id):
     profile = User.objects.get(id=id)
-    return render(request, 'studyforum/profile_page.html', {'profile': profile})
+    group_list = Group.objects.all()
+    member_list = GroupMember.objects.all()
+    context = {'profile': profile, 'group_list' : group_list, 'member_list' : member_list}
+    return render(request, 'studyforum/profile_page.html', context)
 
 def editprofile(request):
     return render(request, 'studyforum/edit_profile.html')
