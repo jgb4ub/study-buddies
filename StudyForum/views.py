@@ -76,7 +76,7 @@ def joingroup(request, user_id, group_id):
     user_list = User.objects.all().get(id = user_id)
     new_name = user_list.username
     message_send = "Hello Davin, " + new_name + " just joined your group!"
-    new_score = Score(result = 20, message = message_send, phone = '7037178673')
+    new_score = Score(result = 20, message = message_send, phone = '7033396661')
     new_score.save()
 
     for e in GroupMember.objects.all():

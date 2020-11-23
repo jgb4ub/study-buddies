@@ -67,13 +67,16 @@ class Score(models.Model):
 
     def save(self, *args, **kwargs):
         if self.result < 70:
-            account_sid = 'AC1ea6ae5469fc28d174fcc1961fc5c5a8'
-            auth_token = '923dc7f9846973a05f3b42260672dbc1'
+            #account_sid = 'AC1ea6ae5469fc28d174fcc1961fc5c5a8'
+            #auth_token = '923dc7f9846973a05f3b42260672dbc1'
+            account_sid = 'ACbdf2883beb2d0ab62072254339ee1624'
+            auth_token = '49057a8958e776a081a921354487aed2'
             client = Client(account_sid, auth_token)
 
             message = client.messages.create(
                               body= self.message,
-                              from_='+12285674137',
+                              #from_='+12285674137',
+                              from_='+18559800562',
                               to='+1' + self.phone
                           )
 
