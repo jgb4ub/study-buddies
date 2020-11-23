@@ -17,30 +17,30 @@
 <div class = "col-md-4"></div>
 <form action = "{% url 'studyforum:addpost' id=user.id %}" method = "post">
     {% csrf_token %}
-    <div style="margin-bottom: 30px" class="column-positioning col-md-4">
-        <h1>Pick a posting category:</h1>
-        <div class="col-md-6">
-            <p>Type in whatever category you wish to have, such as study question or course question</p>
+    <div style="margin-bottom: 30px" class="column-positioning col-md-8 mx-auto">
+        <h1>Pick a posting category:</h1><br>
+        <div class="col-md-9 mx-auto">
+            <p>Type in whatever category you wish to have, such as study question or course question.</p>
             <input type="text" class="form-control" id="subject-area" name="category">
         </div>
     </div>
     <div class="row column-positioning">
-        <div class="col-md-6">
+        <div class="col-md-6 mx-auto">
             <label>Post Subject</label>
-            <input type="text" class="form-control" id="subject-area" name="submitter">
+            <input type="text" placeholder="e.g.  CS 3240" class="form-control" id="subject-area" name="submitter">
             <label>Discord Link</label>
-            <input type="text" class="form-control" id="subject-area" name="discord">
+            <input type="text" placeholder="n/a" class="form-control" id="subject-area" name="discord">
         </div>
     </div>
     <div class="row column-positioning">
-        <div class="col-md-6">
+        <div class="col-md-6 mx-auto">
             <label> Type Post Content Here </label>
-            <textarea class="form-control" id="text-area" name="question">
+            <textarea rows = "6" class="form-control" id="text-area" name="question">
   </textarea>
         </div>
     </div>
     <div class="row check-box-row">
-        <div class="col-md-6">
+        <div class="col-md-6 mx-auto">
             <div class="form-check">
                 <input type="checkbox" class="form-check-input" name="postable">
             </div>
