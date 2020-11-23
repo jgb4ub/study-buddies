@@ -72,11 +72,13 @@ def addgroup(request):
 
 def joingroup(request, user_id, group_id):
     group_members = GroupMember.objects.all()
+    group = Group.objects.all().get(id = group_id)
+    phone_send = group.phone
     state = False
     user_list = User.objects.all().get(id = user_id)
     new_name = user_list.username
     message_send = "Hello Davin, " + new_name + " just joined your group!"
-    new_score = Score(result = 20, message = message_send, phone = '7033396661')
+    new_score = Score(result = 20, message = message_send, phone = phone_send)
     new_score.save()
 
     for e in GroupMember.objects.all():
