@@ -45,6 +45,7 @@
 
                   <h1>
                     <form>
+                      <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary big-button">Visit Group</button>
                       <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary big-button">Join Group</button>
                     </form>
                   </h1>
