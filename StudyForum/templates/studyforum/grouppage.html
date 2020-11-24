@@ -16,6 +16,7 @@
         <div style = "margin-top:50px">
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Group Name: {{group.group_name}}</div>
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Discord Link: {{group.discord_link}}</div>
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">Description: {{group.group_description}}</div>
             <form>
             <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary">Join Group</button>
             </form>
