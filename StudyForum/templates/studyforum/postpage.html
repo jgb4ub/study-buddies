@@ -12,7 +12,8 @@
             <div class="row justify-content-center">
               <div class="col-8">
                 <h1 class="mt-2">Subject: {{post.subject}}</h1>
-                <p>User id number: {{post.user_id}}<a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:profile_page' id=post.user_id %}">Go to user's profile</a></p>
+                <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:profile_page' id=post.user_id %}">Visit User's Profile</a>
+                
                 <p>Category of post: {{post.category}}</p>
                 <hr class="mt-0 mb-4">
                 <p>{{post.content}}</p>
