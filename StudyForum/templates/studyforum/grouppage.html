@@ -16,16 +16,17 @@
         <div style = "margin-top:50px">
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Group Name: {{group.group_name}}</div>
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Discord Link: {{group.group_name}}</div>
-
             <form>
             <button formaction = "{% url 'studyforum:courseenrollment' %}" class = "btn btn-block btn-primary">Join Group</button>
             </form>
             <form style = "margin-top:20px">
             <button formaction = "{% url 'studyforum:courseremoval' %}" class = "btn btn-block btn-primary">Make Announcment</button>
             </form>
+            {% if user.id == group.creator %}
             <form style = "margin-top:20px">
             <button formaction = "{% url 'studyforum:courseremoval' %}" class = "btn btn-block btn-primary">Edit Group Page</button>
             </form>
+            {% endif %}
         </div>
     </div>
     <div class="col-md-5">

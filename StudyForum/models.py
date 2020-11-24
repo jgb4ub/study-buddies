@@ -50,6 +50,8 @@ class Group(models.Model):
 
 class GroupMember(models.Model):
     first_name = models.CharField(max_length = 12, default="na")
+    user_first = models.CharField(max_length = 12, default="na")
+    user_last = models.CharField(max_length = 12, default="na")
     group_id = models.IntegerField()
     member_id = models.IntegerField()
 

@@ -32,8 +32,14 @@ def profile_editor(request, id):
     profile = User.objects.get(id=id)
     username = request.POST.get("username", False)
     major = request.POST.get("major", False)
+    phone = request.POST.get("phone", False)
+    email = request.POST.get("email", False)
+    discord_id = request.POST.get("discord", False)
     profile.username = username
     profile.major = major
+    profile.phone = phone
+    profile.email = email
+    profile.discord_id = discord_id
     profile.save()
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
 
@@ -77,7 +83,10 @@ def joingroup(request, user_id, group_id):
     state = False
     user_list = User.objects.all().get(id = user_id)
     new_name = user_list.username
-    message_send = "Hello Davin, " + new_name + " just joined your group!"
+    new_phone = user_list.phone
+    new_discord = user_list.discord_id 
+    new_email = user_list.email
+    message_send = "Hello, " + new_name + " just joined your group! Phone: "+ new_phone+ " Discord ID: " + new_discord +" Email: " + new_email
     new_score = Score(result = 20, message = message_send, phone = phone_send)
     new_score.save()
 
@@ -104,12 +113,10 @@ def grouppage(request, group_id):
 
 def chat(request):
     return render(request, 'studyforum/chat.html')
-#def messages(request, user_id)
 
 def messages(request):
     user_messages = Message.objects.all()
     username_list = User.objects.all()
-#    message_list = user_messages.order_by('-time')
     context = {'username_list': username_list}
     return render(request, 'studyforum/sendchat.html', context)
 
@@ -123,8 +130,6 @@ def sendmessage(request):
 
 def messageReceived(request, user_id):
     user_messages = Message.objects.filter(recipient=user_id)
-    #user_messages2 = Message.objects.filter(recipient=user_id)
-    #user_messages = user_messages.union(user_messages2)
     message_list = user_messages.order_by('-time')
     return render(request, 'studyforum/receivechat.html', {'messages': message_list})
 
@@ -213,8 +218,6 @@ def enrollcourse(request, id):
         
 def delete_post(request,id):
     post_to_delete=Post.objects.filter(id=id).delete()
-    #post_to_delete.delete()
-    #Post.save()
     post_list = Post.objects.all()
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
