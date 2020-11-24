@@ -7,7 +7,8 @@
     <div class="col-md-4">
         <h1 class = "display-4" >Student Profile Page</h1>
         <div style = "margin-top:50px">
-            <div class="shadow-sm p-3 mb-5 bg-white rounded">Name: {{profile.username}}</div>
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">Username: {{profile.username}}</div>
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">Name: {{profile.first_name}} {{profile.last_name}}</div>
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Major: {{profile.major}}</div>
 {% if user.id == profile.id %}
             <form>
@@ -30,7 +31,7 @@
   </div>
     <ul class="list-group list-group-flush">
     {% for course in profile.courses.all %}
-    <li class="list-group-item">Course: {{course.name}} Time:{{course.time}} Instructor:{{course.professor}}</li>
+    <li class="list-group-item">Course: {{course.name}} Time: {{course.time}} Instructor: {{course.professor}}</li>
     {% endfor %}
   </ul>
 </div>
