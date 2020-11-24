@@ -96,6 +96,10 @@ def postpage(request, post_id):
     post = Post.objects.get(pk=post_id)
     return render(request, 'studyforum/postpage.html',{'post': post})
 
+def grouppage(request, group_id):
+    group = Group.objects.get( id=group_id)
+    return render(request, 'studyforum/grouppage.html', {'group':group})
+
 def chat(request):
     return render(request, 'studyforum/chat.html')
 #def messages(request, user_id)

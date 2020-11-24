@@ -15,6 +15,7 @@ urlpatterns = [
     path('<int:id>/addpost/',views.addpost, name='addpost'),
     path('addgroup/',views.addgroup, name = 'addgroup'),
     path('<int:post_id>/postpage/',views.postpage, name='postpage'),
+    path('<int:group_id>/grouppage/',views.grouppage, name='grouppage'),
     path('sendchat/', views.messages, name='sendchat'),
     path('sendmessage/',views.sendmessage,name='sendmessage'),
     path('<int:user_id>/<int:group_id>/joingroup/',views.joingroup, name= 'joingroup'),

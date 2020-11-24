@@ -15,7 +15,8 @@
     <title>Document</title>
   </head>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+    <nav class = "navbar navbar-expand-lg navbar-dark bg-primary">
     <button
       class="navbar-toggler"
       type="button"
@@ -25,25 +26,25 @@
       <span id="collapse-button" class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapse-bar">
-      <a class="navbar-brand primary-text" style="font-family: Pacifico"
-        >The Study Spot</a
+      <a class="navbar-brand primary-text display-1" style="color: whitesmoke"
+        >Study Buddies</a
       >
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:profile_page' id=user.id %}">Profile</a>
+          <a style="color: white" class="nav-link" href="{% url 'studyforum:profile_page' id=user.id %}">Profile</a>
         </li>
         {% else %}
         <li class="nav-item">
-          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:index' %}">Sign-in</a>
+          <a style="color: white" class="nav-link" href="{% url 'studyforum:index' %}">Sign-in</a>
         </li>
         {% endif %}
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:post' %}">Postings</a>
+          <a style="color: white" class="nav-link" href="{% url 'studyforum:post' %}">Postings</a>
         </li>
         <li class="nav-item">
-          <a style="color: #6594ff" class="nav-link" href="{% url 'studyforum:groups' %}">Groups</a>
+          <a style="color: white" class="nav-link" href="{% url 'studyforum:groups' %}">Groups</a>
         </li>
         {% endif %}
       </ul>
@@ -55,7 +56,7 @@
     <div class = "row">
     <div class = "footer">
   <div class="jumbotron">
-  <h1>The Study Spot</h1>
+  <h1>Study Buddies</h1>
   <p class="lead">Authors: Team 1-02 The-Innovators Sammy Lahrime, Davin Um, Ibrahim Hamdy, Josh Buckley CS 3240</p>
   <p class = "lead">Copyright: </p>
 </div>

@@ -3,10 +3,7 @@
 
 {% block content %}
   <div class = "container my-3">
-      <nav class = "breadcrumb">
-        <h6 class = "breadcrumb-item-active">Current Forum Posts</h6>
-      </nav>
-
+        <h2 class = "display-3" style="text-align:center;">Current Forum Posts</h2>
       <div class = "row">
           <div class="col-12 col-xl-9">
           </div>
@@ -16,7 +13,7 @@
   <div class ="col-md-2"></div>
   <div class = "col-md-8">
         {% for post in post_list %}
-        <div style = "margin-top:50px" class="card z-depth-0 bordered">
+        <div style = "margin-top:50px" class="shadow-sm card z-depth-0 bordered">
                 <div class="card-header">
                   <h7>Discord Link: {{post.discord_link}}</h7>
                   <h6>

@@ -5,7 +5,7 @@
     <div class="col-md-1">
     </div>
     <div class="col-md-4">
-        <h1>Student Profile Page</h1>
+        <h1 class = "display-4" >Student Profile Page</h1>
         <div style = "margin-top:50px">
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Name: {{profile.username}}</div>
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Major: {{profile.major}}</div>
@@ -24,7 +24,7 @@
 
         <div class="p">
           <div class="card" style = "margin-top: 30px">
-  <div class="card-header">
+  <div class="card-header shadow-sm">
     My Courses
   </div>
     <ul class="list-group list-group-flush">
@@ -37,7 +37,7 @@
     
         <div class="p">
           <div class="card" style = "margin-top: 30px">
-              <div class="card-header">
+              <div class="card-header shadow-sm">
     My Ratings
   </div>
           <h6>Courses you rated a 5: </h6>
@@ -84,7 +84,7 @@
     </div>
     <div class="col-md-5">
 <div class="card">
-  <div class="card-header" style = "font-size:60px">
+  <div class="card-header display-4 shadow-sm" style = "font-size:60px">
     Active Groups
   </div>
   {% for group in group_list %}
@@ -101,9 +101,6 @@
   {% endif %}
   {% endfor%}
   {% endfor %}
-
-
-
 </div>
     </div>
     <div class="col-md-1">

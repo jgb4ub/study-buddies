@@ -1,9 +1,7 @@
 {% extends './global_template.html' %}
 {% block content %}
   <div class = "container my-3">
-      <nav class = "breadcrumb">
-        <h6 class = "breadcrumb-item-active">Current Group Posts</h6>
-      </nav>
+                <h2 class = "display-3" style="text-align:center;">Current Group Posts</h2>
       <div class = "row">
           <div class="col-12 col-xl-9">
 
@@ -14,9 +12,8 @@
   <div class ="col-md-3"></div>
   <div class = "col-md-6">
         {% for group in group_list %}
-        <div class="card z-depth-0 bordered" style = "margin-top: 35px">
+        <div class="shadow-sm card z-depth-0 bordered" style = "margin-top: 35px">
                 <div class="card-header">
-
                   <h5 style = "margin-top:15px" class="card-title">
                   {{group.group_name}}
                   </h5>
@@ -26,9 +23,11 @@
                   <p style = "border-bottom: solid">
                   {{group.group_description}}                  
                   </p>
+                  <p style = "border-bottom: solid">
+                  {{group.id}}                  
+                  </p>
                   Discord Link:
-                  <p>
-                  
+                  <p class = "lead">
                   {{group.discord_link}}
                   </p>
                   <ul class="list-group list-group-flush">
@@ -45,8 +44,8 @@
 
                   <h1>
                     <form>
-                      <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary big-button">Visit Group</button>
-                      <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary big-button">Join Group</button>
+                      <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary btn-sm">Visit Group</button>
+                      <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary btn-sm">Join Group</button>
                     </form>
                   </h1>
                 </div>
