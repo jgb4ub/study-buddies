@@ -87,8 +87,6 @@ def joingroup(request, user_id, group_id):
     new_discord = user_list.discord_id 
     new_email = user_list.email
     message_send = "Hello, " + new_name + " just joined your group! Phone: "+ new_phone+ " Discord ID: " + new_discord +" Email: " + new_email
-    new_score = Score(result = 20, message = message_send, phone = phone_send)
-    new_score.save()
 
     for e in GroupMember.objects.all():
         if(e.member_id == user_id and group_id == e.group_id):
@@ -96,6 +94,8 @@ def joingroup(request, user_id, group_id):
     if(state == False):
         new_group_member = GroupMember(first_name = new_name, group_id = group_id, member_id = user_id)
         new_group_member.save()
+        new_score = Score(result = 20, message = message_send, phone = phone_send)
+        new_score.save()
     group_list = Group.objects.all()
     member_list = GroupMember.objects.all()
     context = {'group_list' : group_list, 'member_list' : member_list}
