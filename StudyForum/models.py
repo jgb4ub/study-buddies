@@ -41,7 +41,7 @@ class Post(models.Model):
     
 
 class Group(models.Model):
-    group_name = models.CharField(max_length = 12, default="na")
+    group_name = models.CharField(max_length = 100, default="na")
     course = models.CharField(max_length=12, default="na")
     group_description = models.CharField(max_length = 100, default="na")
     creator = models.IntegerField()
