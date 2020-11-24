@@ -91,10 +91,10 @@
   {% for member in member_list %}
   {% if member.group_id == group.id%}
   {% if member.member_id == user.id %}
-  <div class="card-body" style = "border-bottom:solid">
+  <div class="card-body card-border-light">
     <blockquote class="blockquote mb-0">
       <a href="{% url 'studyforum:grouppage' group_id=group.id %}">{{group.group_name}}</a>
-      <footer>Description: {{group.group_description}}</footer>
+      <footer class = "lead" >Description: {{group.group_description}}</footer>
     </blockquote>
   </div>
   {% endif %}
@@ -107,4 +107,11 @@
 
     </div>
 </div>
+
+   <style>
+  .card-border-light {
+    border-bottom: solid;
+    border-color:lightgray;
+}
+    </style>
 {% endblock %}

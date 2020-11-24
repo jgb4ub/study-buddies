@@ -38,7 +38,7 @@
   {% if member.group_id == group.id%}
     <div class="card-body card-border-light">
     <blockquote class="blockquote mb-0">
-      <p>Name: {{member.first_name}}</p>
+      <a href="{% url 'studyforum:profile_page' id=member.member_id%}">{{member.first_name}}</a>
     </blockquote>
   </div>
   {% endif %}
