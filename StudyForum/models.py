@@ -64,7 +64,7 @@ class Message(models.Model):
 
 class Score(models.Model):
     result = models.PositiveIntegerField()
-    message = models.CharField(max_length=100, default="na")
+    message = models.CharField(max_length=500, default="na")
     phone = models.CharField(max_length=50, default="na")
     
     def __str__(self):
