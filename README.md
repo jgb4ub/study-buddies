@@ -21,4 +21,4 @@ If the user wishes to delete the post, then the user can view their own post and
 The user can create a study group that allows other user to join with same interest. If the user decides to create a group, then the user can choose the group name, the course that relates to the group, the discord link, the user's phone number and the group description. Whenever another user joins the group, the owner of the group will be notified that someone joined the study group. The groups html will also display who have joined the study group.
 
 ## Heroku Link
-[The Innovators](https://study-buddy-innovators.herokuapp.com/)
+[The Innovators](https://the-innovators-final.herokuapp.com/)
