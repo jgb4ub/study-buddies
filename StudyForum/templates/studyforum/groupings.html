@@ -44,7 +44,14 @@
 
                   <h1>
                     <form>
-                      <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary btn-sm">Visit Group</button>
+                  {% for member in member_list %}
+                  {% if member.member_id == user.id %}
+                  {% if member.group_id == group.id%}
+                      <li class="list-group-item">You're a member of this group</li>
+                  {% endif %}
+                  {% endif %}
+                  {% endfor %}
+                      <button formaction="{% url 'studyforum:grouppage' group_id=group.id %}" class = "btn btn-block btn-primary btn-sm">Visit Group</button>
                       <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary btn-sm">Join Group</button>
                     </form>
                   </h1>

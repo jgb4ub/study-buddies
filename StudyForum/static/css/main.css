@@ -9,3 +9,9 @@ h1 {
     border-radius: 10px;
     margin-top: 50px;
 }
+
+
+.card-border-light {
+    color:lightgray;
+    border-bottom: solid;
+}

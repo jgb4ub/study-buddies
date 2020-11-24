@@ -93,8 +93,8 @@
   {% if member.member_id == user.id %}
   <div class="card-body" style = "border-bottom:solid">
     <blockquote class="blockquote mb-0">
-      <p>{{group.group_name}}</p>
-      <footer>{{group.group_description}}</footer>
+      <a href="{% url 'studyforum:grouppage' group_id=group.id %}">{{group.group_name}}</a>
+      <footer>Description: {{group.group_description}}</footer>
     </blockquote>
   </div>
   {% endif %}

@@ -15,17 +15,16 @@
         <h1 class = "display-4" >Group Page</h1>
         <div style = "margin-top:50px">
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Group Name: {{group.group_name}}</div>
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">Discord Link: {{group.group_name}}</div>
+
             <form>
-            <button formaction = "{% url 'studyforum:courseenrollment' %}" class = "btn btn-block btn-primary">Enroll in a Course</button>
+            <button formaction = "{% url 'studyforum:courseenrollment' %}" class = "btn btn-block btn-primary">Join Group</button>
             </form>
             <form style = "margin-top:20px">
-            <button formaction = "{% url 'studyforum:courseremoval' %}" class = "btn btn-block btn-primary">Remove a Course</button>
+            <button formaction = "{% url 'studyforum:courseremoval' %}" class = "btn btn-block btn-primary">Make Announcment</button>
             </form>
             <form style = "margin-top:20px">
-            <button formaction = "{% url 'studyforum:coursesubmit' %}" class = "btn btn-block btn-primary">Create a Course</button>
-            </form>
-            <form style = "margin-top:20px">
-            <button formaction = "{% url 'studyforum:editprofile' %}" class = "btn btn-block btn-primary">Edit Profile</button>
+            <button formaction = "{% url 'studyforum:courseremoval' %}" class = "btn btn-block btn-primary">Edit Group Page</button>
             </form>
         </div>
     </div>
@@ -34,18 +33,23 @@
   <div class="card-header display-4 shadow-sm" style = "font-size:60px">
     Groupmembers
   </div>
-  <div class="card-body" style = "border-bottom:solid">
+
+{% for member in member_list %}
+  {% if member.group_id == group.id%}
+    <div class="card-body card-border-light">
     <blockquote class="blockquote mb-0">
-      <p>{{group.group_name}}</p>
-      <footer>{{group.group_description}}</footer>
+      <p>Name: {{member.first_name}}</p>
     </blockquote>
   </div>
+  {% endif %}
+  {% endfor%}
+
 </div>
-<div class="card">
+<div class="card" style = "margin-top:40px">
   <div class="card-header display-4 shadow-sm" style = "font-size:60px">
     Announcements
   </div>
-  <div class="card-body" style = "border-bottom:solid">
+  <div class="card-body card-border-light">
     <blockquote class="blockquote mb-0">
       <p>{{group.group_name}}</p>
       <footer>{{group.group_description}}</footer>
@@ -56,5 +60,13 @@
     <div class="col-md-1"></div>
 </div>
     </body>
+
+    <style>
+
+  .card-border-light {
+    border-bottom: solid;
+    border-color:lightgray;
+}
+    </style>
     </html>
     {% endblock %}
