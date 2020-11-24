@@ -9,6 +9,7 @@
         <div style = "margin-top:50px">
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Name: {{profile.username}}</div>
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Major: {{profile.major}}</div>
+{% if user.id == profile.id %}
             <form>
             <button formaction = "{% url 'studyforum:courseenrollment' %}" class = "btn btn-block btn-primary">Enroll in a Course</button>
             </form>
@@ -21,7 +22,7 @@
             <form style = "margin-top:20px">
             <button formaction = "{% url 'studyforum:editprofile' %}" class = "btn btn-block btn-primary">Edit Profile</button>
             </form>
-
+{% endif %}
         <div class="p">
           <div class="card" style = "margin-top: 30px">
   <div class="card-header shadow-sm">

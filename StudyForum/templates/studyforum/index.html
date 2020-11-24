@@ -15,9 +15,14 @@
         <h2 class = "display-1" style="text-align:center;">Hello {{ user.first_name }}</h2>
         <h2 class="display-1" style="text-align:center;">Welcome to the Study Buddies Web Application</h2>
         <h2 style="text-align:center;"> </h2>
+    </div>
     {% else %}
-    <h1>Login Page</h1>
-    <button onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-block btn-primary big-button">Please Login With Google Here!</button>
+        <div class="container">
+        <h2 style="text-align:center;"> </h2>
+        <h2 class = "display-1" style="text-align:center;">Please Login!</h2>
+        <button style= "margin-left:425px" onclick = "location.href='/accounts/google/login/?process=login'" class = "btn btn-primary big-button">Login With Google Here!</button>
+        <h2 style="text-align:center;"> </h2>
+    </div>
     {% endif %}
     </div>
 </div>
