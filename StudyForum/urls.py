@@ -13,7 +13,7 @@ urlpatterns = [
     path('postsubmission/',views.postsubmit, name = 'postsubmit'),
     path('groupsubmission/',views.groupsubmit, name = 'groupsubmit'),
     path('<int:id>/addpost/',views.addpost, name='addpost'),
-    path('addgroup/',views.addgroup, name = 'addgroup'),
+    path('<int:user_id>/addgroup/',views.addgroup, name = 'addgroup'),
     path('<int:post_id>/postpage/',views.postpage, name='postpage'),
     path('<int:group_id>/grouppage/',views.grouppage, name='grouppage'),
     path('sendchat/', views.messages, name='sendchat'),
@@ -28,6 +28,8 @@ urlpatterns = [
     path('courseenrollment/', views.courseenrollment, name='courseenrollment'),
     path('<int:id>/enrollcourse/', views.enrollcourse, name='enrollcourse'),
     path('editprofile/', views.editprofile, name='editprofile'),
+    path('<int:group_id>/editgroup/', views.editgroup, name='editgroup'),
     path('<int:id>/profile_editor/', views.profile_editor, name='profile_editor'),
+    path('<int:group_id>/group_editor/',views.group_editor, name='group_editor'),
     path('<int:id>/delete/',views.delete_post,name='delete')
 ]

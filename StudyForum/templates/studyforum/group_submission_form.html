@@ -20,7 +20,7 @@
         <h1 style = "margin-top:50px">
             Create Group Here!
         </h1>
-<form style = "margin-top:50px" action = "{% url 'studyforum:addgroup' %}" method = "post">
+<form style = "margin-top:50px" action = "{% url 'studyforum:addgroup' user_id=user.id %}" method = "post">
     {% csrf_token %}
             <label>Group Name</label>
             <input type="text" class="form-control" id="subject-area" name="groupname">
@@ -28,23 +28,14 @@
             <input type="text" class="form-control" id="subject-area" name="coursename">
             <label>Discord Link</label>
             <input type="text" class="form-control" id="subject-area" name="discord">
-            <label>Phone Number</label>
+            <label>Phone Number (numbers only, no dashes)</label>
             <input type="text" class="form-control" id="subject-area" name="phone">
             <label> Group Description</label>
             <textarea class="form-control" id="text-area" name="groupdescription">
   </textarea>
-<div style = "margin-top:10px" class="row">
-    <div class="check-box-row">
 
-            <div class="form-check">
-                 <input type="checkbox" class="form-check-input" name="anonymous">
-                     <label class="form-check-label" for="exampleCheck1">Anonymous</label>
-        </div>
-                    <button type="submit" style="margin-top:10px" class="btn btn-dark" id="submit-question-button" name="submit-question-button">Create Group
-    
-                        </div>
+                    <button type="submit" style="margin-top:10px" class="btn btn-dark" id="submit-question-button" name="submit-question-button">Create Group</button>
 </form> 
-</div>
 <div class="col-md-3"></div>
 </div>
 

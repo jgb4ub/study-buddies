@@ -15,7 +15,7 @@
         <h1 class = "display-4" >Group Page</h1>
         <div style = "margin-top:50px">
             <div class="shadow-sm p-3 mb-5 bg-white rounded">Group Name: {{group.group_name}}</div>
-            <div class="shadow-sm p-3 mb-5 bg-white rounded">Discord Link: {{group.group_name}}</div>
+            <div class="shadow-sm p-3 mb-5 bg-white rounded">Discord Link: {{group.discord_link}}</div>
             <form>
             <button formaction="{% url 'studyforum:joingroup' user_id=user.id group_id=group.id %}" class = "btn btn-block btn-primary">Join Group</button>
             </form>
@@ -24,7 +24,7 @@
             <button formaction = "{% url 'studyforum:courseremoval' %}" class = "btn btn-block btn-primary">Make Announcment</button>
             </form>
             <form style = "margin-top:20px">
-            <button formaction = "{% url 'studyforum:courseremoval' %}" class = "btn btn-block btn-primary">Edit Group Page</button>
+            <button formaction = "{% url 'studyforum:editgroup' group_id=group.id %}" class = "btn btn-block btn-primary">Edit Group Page</button>
             </form>
             {% endif %}
         </div>
@@ -39,7 +39,8 @@
   {% if member.group_id == group.id%}
     <div class="card-body card-border-light">
     <blockquote class="blockquote mb-0">
-      <a href="{% url 'studyforum:profile_page' id=member.member_id%}">{{member.first_name}}</a>
+      <a href="{% url 'studyforum:profile_page' id=member.member_id%}">Username: {{member.first_name}}</a>
+      <p>Name: {{member.user_first}} {{member.user_last}}</p>
     </blockquote>
   </div>
   {% endif %}

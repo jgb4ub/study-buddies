@@ -33,7 +33,8 @@
                   </h5>
                   {% for member in member_list %}
                   {% if member.group_id == group.id %}
-                      <li class="list-group-item">{{member.first_name}}</li>
+                      <a href="{% url 'studyforum:profile_page' id=member.member_id%}">Username: {{member.first_name}}</a>
+                      <p>Name: {{member.user_first}} {{member.user_last}}</p>
                   {% endif %}
                   {% endfor %}
                     </ul>

@@ -18,44 +18,30 @@
 <br><br>
 <h1 class="label label-default mx-auto">Edit Profile</h1>
 <br>
-<form action = "{% url 'studyforum:profile_editor' id=user.id %}" method = "post">
+<form action = "{% url 'studyforum:group_editor' group_id=group.id %}" method = "post">
     {% csrf_token %}
     <div class="row column-positioning">
         <div class="col-md-6 mx-auto">
-            <label>Username</label>
-            <input type="text" class="form-control" id="subject-area" name="username">
+            <label>New Group Name</label>
+            <input type="text" class="form-control" id="subject-area" name="groupname">
         </div>
     </div>
     <div class="row column-positioning">
         <div class="col-md-6 mx-auto">
-            <label>Major</label>
-            <input type="text" class="form-control" id="subject-area" name="major">
+            <label>New Group Description</label>
+            <input type="text" class="form-control" id="subject-area" name="groupdescription">
         </div>
     </div>
 
     <div class="row column-positioning">
         <div class="col-md-6 mx-auto">
-            <label>Phone (numbers only, no dashes)</label>
-            <input type="text" class="form-control" id="subject-area" name="phone">
+            <label>New Group Discord Link</label>
+            <input type="text" class="form-control" id="subject-area" name="groupdiscord">
         </div>
     </div>
-    <div class="row column-positioning">
-        <div class="col-md-6 mx-auto">
-            <label>Email</label>
-            <input type="text" class="form-control" id="subject-area" name="email">
-        </div>
-    </div>
-    <div class="row column-positioning">
-        <div class="col-md-6 mx-auto">
-            <label>Discord Handle</label>
-            <input type="text" class="form-control" id="subject-area" name="discord">
-        </div>
-    </div>
-    <div class="row check-box-row">
         <div class="col-md-6 mx-auto">
             <button type="submit" style="margin-top:10px" class="btn btn-dark float-left" id="submit-question-button" name="submit-question-button">Submit</button>
         </div>
-    </div>
 </form>
 
 <!--

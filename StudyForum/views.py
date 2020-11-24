@@ -28,6 +28,11 @@ def profile_page(request, id):
 def editprofile(request):
     return render(request, 'studyforum/edit_profile.html')
 
+def editgroup(request,group_id):
+    group = Group.objects.get(id=group_id)
+    context = {'group': group}
+    return render(request, 'studyforum/edit_group.html', context)
+
 def profile_editor(request, id):
     profile = User.objects.get(id=id)
     username = request.POST.get("username", False)
@@ -42,6 +47,20 @@ def profile_editor(request, id):
     profile.discord_id = discord_id
     profile.save()
     return render(request, 'studyforum/profile_page.html', {'profile': profile})
+
+def group_editor(request, group_id):
+    new_group = Group.objects.get(id=group_id)
+    new_group_name = request.POST.get("groupname", False)
+    new_group_description = request.POST.get("groupdescription", False)
+    new_group_discord_id = request.POST.get("groupdiscord", False)
+    new_group.group_name = new_group_name
+    new_group.group_description = new_group_description
+    new_group.discord_link = new_group_discord_id
+    new_group.save()
+    group = Group.objects.get( id=group_id)
+    member_list = GroupMember.objects.all()
+    context = {'group' : group,'member_list' : member_list}
+    return render(request, 'studyforum/grouppage.html', context)
 
 def postsubmit(request):
     return render(request, 'studyforum/posting_submission.html')
@@ -63,16 +82,18 @@ def addpost(request, id):
     context = {'post_list': post_list}
     return render(request, 'studyforum/postings.html',context)
 
-def addgroup(request):
+def addgroup(request, user_id):
     new_group_name = request.POST.get("groupname",False)
     new_course_name = request.POST.get("coursename",False)
     new_post_discord = request.POST.get("discord", False)
     new_phone = request.POST.get("phone", False)
     new_group_description = request.POST.get("groupdescription", False)
-    new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description, discord_link = new_post_discord, phone = new_phone)
+    new_creator = user_id
+    new_group = Group(group_name = new_group_name, course = new_course_name, group_description = new_group_description, discord_link = new_post_discord, phone = new_phone, creator = new_creator)
     new_group.save()
     group_list = Group.objects.all()
     member_list = GroupMember.objects.all()
+    #joingroup(request, user_id, new_group.id)
     context = {'group_list' : group_list, 'member_list' : member_list}
     return render(request,'studyforum/groupings.html',context)
 
@@ -83,16 +104,18 @@ def joingroup(request, user_id, group_id):
     state = False
     user_list = User.objects.all().get(id = user_id)
     new_name = user_list.username
+    new_first_name = user_list.first_name
+    new_last_name = user_list.last_name
     new_phone = user_list.phone
     new_discord = user_list.discord_id 
     new_email = user_list.email
-    message_send = "Hello, " + new_name + " just joined your group! Phone: "+ new_phone+ " Discord ID: " + new_discord +" Email: " + new_email
+    message_send = "Hello, " + new_first_name + " "+ new_last_name + " just joined your group! Phone: "+ new_phone+ " Discord ID: " + new_discord +" Email: " + new_email
 
     for e in GroupMember.objects.all():
         if(e.member_id == user_id and group_id == e.group_id):
             state = True
     if(state == False):
-        new_group_member = GroupMember(first_name = new_name, group_id = group_id, member_id = user_id)
+        new_group_member = GroupMember(first_name = new_name, group_id = group_id, member_id = user_id, user_first= new_first_name, user_last = new_last_name)
         new_group_member.save()
         new_score = Score(result = 20, message = message_send, phone = phone_send)
         new_score.save()
