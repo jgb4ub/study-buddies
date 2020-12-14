@@ -1,6 +1,6 @@
 # The Innovators
 
-This is our github repo for Fall 2020 CS 3240 Project. The repo contains code related to creating a website that allows students to virtually create study groups and provide ways to meet together.
+This is our github repo for Fall 2020 CS 3240 Project in Django. The repo contains code related to creating a website that allows students to virtually create study groups and provide ways to meet together.
 
 ## Profile
 
